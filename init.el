@@ -9,7 +9,8 @@
  myspacemacs--font-size 12
  myspacemacs--fixed-font "DejaVu Sans Mono"
  myspacemacs--variable-font "DejaVu Sans"
- myspacemacs--local (expand-file-name "~/.spacemacs.d/local.el")
+ myspacemacs--path (file-name-directory load-file-name)
+ myspacemacs--local (concat myspacemacs--path "local.el")
  myspacemacs--max-column 79
  myspacemacs--org-base-path "~/org"
  myspacemacs--layers-hook nil
