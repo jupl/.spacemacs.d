@@ -18,7 +18,7 @@
  myspacemacs--user-config-hook nil
  myspacemacs--after-hook nil)
 
-;; Use hooks for .spacemacs.local
+;; Use hooks for Spacemacs local
 (defun dotspacemacs/layers () (run-hooks 'myspacemacs--layers-hook))
 (defun dotspacemacs/init () (run-hooks 'myspacemacs--init-hook))
 (defun dotspacemacs/user-init () (run-hooks 'myspacemacs--user-init-hook))
@@ -27,7 +27,7 @@
   (run-with-timer 0 nil 'dotspacemacs/after))
 (defun dotspacemacs/after () (run-hooks 'myspacemacs--after-hook))
 
-;; Load spacemacs local if available
+;; Load Spacemacs local if available
 (when (file-exists-p myspacemacs--local)
   (ignore-errors (load myspacemacs--local)))
 
