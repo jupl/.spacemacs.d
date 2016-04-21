@@ -9,7 +9,7 @@
  myspacemacs--font-size 12
  myspacemacs--fixed-font "DejaVu Sans Mono"
  myspacemacs--variable-font "DejaVu Sans"
- myspacemacs--dotlocal (expand-file-name "~/.spacemacs.local")
+ myspacemacs--local (expand-file-name "~/.spacemacs.d/local.el")
  myspacemacs--max-column 79
  myspacemacs--org-base-path "~/org"
  myspacemacs--layers-hook nil
@@ -27,9 +27,9 @@
   (run-with-timer 0 nil 'dotspacemacs/after))
 (defun dotspacemacs/after () (run-hooks 'myspacemacs--after-hook))
 
-;; Load .spacemacs.local if available
-(when (file-exists-p myspacemacs--dotlocal)
-  (ignore-errors (load myspacemacs--dotlocal)))
+;; Load spacemacs local if available
+(when (file-exists-p myspacemacs--local)
+  (ignore-errors (load myspacemacs--local)))
 
 ;; Add main hook handlers
 (add-hook 'myspacemacs--layers-hook 'myspacemacs//layers)
