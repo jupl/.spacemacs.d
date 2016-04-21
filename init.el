@@ -284,7 +284,7 @@
 
 (defun myspacemacs//find-dotfile-local ()
   (interactive)
-  (find-file myspacemacs--dotlocal))
+  (find-file myspacemacs--local))
 
 (defun myspacemacs//org-present ()
   (spacemacs/toggle-mode-line)
