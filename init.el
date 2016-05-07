@@ -42,7 +42,8 @@
 (defun myspacemacs//layers ()
   (setq-default
    dotspacemacs-additional-packages '(editorconfig)
-   dotspacemacs-configuration-layers '(colors
+   dotspacemacs-configuration-layers '(clojure
+                                       colors
                                        dockerfile
                                        emacs-lisp
                                        html
