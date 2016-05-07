@@ -47,7 +47,6 @@
                                        dockerfile
                                        emacs-lisp
                                        html
-                                       github
                                        markdown
                                        osx
                                        react
