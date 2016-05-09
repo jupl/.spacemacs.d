@@ -42,8 +42,7 @@
 (defun myspacemacs//layers ()
   (setq-default
    dotspacemacs-additional-packages '(editorconfig)
-   dotspacemacs-configuration-layers '(clojure
-                                       colors
+   dotspacemacs-configuration-layers '(colors
                                        dockerfile
                                        emacs-lisp
                                        html
@@ -59,6 +58,9 @@
                                        (auto-completion
                                         :variables
                                         auto-completion-enable-help-tooltip t)
+                                       (clojure
+                                        :variables
+                                        clojure-enable-fancify-symbols t)
                                        (git
                                         :variables
                                         git-magit-status-fullscreen t
