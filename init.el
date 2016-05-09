@@ -10,29 +10,14 @@
  myspacemacs--fixed-font "DejaVu Sans Mono"
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
- myspacemacs--local (concat myspacemacs--path "local.el")
  myspacemacs--max-column 79
- myspacemacs--org-base-path "~/org"
- myspacemacs--layers-hook nil
- myspacemacs--init-hook nil
- myspacemacs--user-init-hook nil
- myspacemacs--user-config-hook nil
- myspacemacs--after-hook nil)
+ myspacemacs--org-base-path "~/org")
 
-;; Use hooks for Spacemacs local
-(defun dotspacemacs/layers () (run-hooks 'myspacemacs--layers-hook))
-(defun dotspacemacs/init () (run-hooks 'myspacemacs--init-hook))
-(defun dotspacemacs/user-init () (run-hooks 'myspacemacs--user-init-hook))
-(defun dotspacemacs/user-config ()
-  (run-hooks 'myspacemacs--user-config-hook)
-  (run-with-timer 0 nil 'dotspacemacs/after))
-(defun dotspacemacs/after () (run-hooks 'myspacemacs--after-hook))
+;; Load additional libs
+(load (concat myspacemacs--path "hooks.el"))
+(load (concat myspacemacs--path "setup-local.el"))
 
-;; Load Spacemacs local if available
-(when (file-exists-p myspacemacs--local)
-  (ignore-errors (load myspacemacs--local)))
-
-;; Add main hook handlers
+;; Set up hooks
 (add-hook 'myspacemacs--layers-hook 'myspacemacs//layers)
 (add-hook 'myspacemacs--init-hook 'myspacemacs//init)
 (add-hook 'myspacemacs--user-init-hook 'myspacemacs//user-init)
