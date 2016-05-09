@@ -164,7 +164,6 @@
   (add-hook 'yaml-mode-hook 'myspacemacs//yaml-mode)
 
   ;; Additional patterns to match files to major modes
-  (add-to-list 'auto-mode-alist '("/\\.spacemacs.local$" . emacs-lisp-mode))
   (add-to-list 'auto-mode-alist '("\\.swig$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tag$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.zsh$" . sh-mode))
