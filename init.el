@@ -11,7 +11,8 @@
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
- myspacemacs--org-base-path "~/org")
+ myspacemacs--org-base-path "~/org"
+ myspacemacs--powerline-scale 1.4)
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
@@ -71,7 +72,7 @@
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-default-font `(,myspacemacs--fixed-font
                                :size ,myspacemacs--font-size
-                               :powerline-scale 1.4)
+                               :powerline-scale ,myspacemacs--powerline-scale)
    dotspacemacs-editing-style 'vim
    dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-emacs-leader-key "C-l"
