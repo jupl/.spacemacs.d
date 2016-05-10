@@ -16,6 +16,7 @@
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
+(load (concat myspacemacs--path "layers.el"))
 (load (concat myspacemacs--path "local.el"))
 
 ;; Set up hooks
@@ -27,9 +28,9 @@
 
 (defun myspacemacs//layers ()
   (setq-default
-   dotspacemacs-additional-packages '(editorconfig)
    dotspacemacs-configuration-layers '(colors
                                        dockerfile
+                                       editorconfig
                                        emacs-lisp
                                        html
                                        markdown
