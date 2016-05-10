@@ -16,7 +16,7 @@
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
-(load (concat myspacemacs--path "setup-local.el"))
+(load (concat myspacemacs--path "local.el"))
 
 ;; Set up hooks
 (add-hook 'myspacemacs--layers-hook 'myspacemacs//layers)
@@ -191,8 +191,7 @@
   (evil-leader/set-key
     ";" 'evilnc-comment-or-uncomment-lines
     "ff" 'ido-find-file
-    "fF" 'ido-find-file
-    "fe\C-d" 'myspacemacs//find-dotfile-local)
+    "fF" 'ido-find-file)
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
@@ -268,10 +267,6 @@
 
 (defun myspacemacs//yaml-mode ()
   (diff-hl-mode t))
-
-(defun myspacemacs//find-dotfile-local ()
-  (interactive)
-  (find-file myspacemacs--local))
 
 (defun myspacemacs//org-present ()
   (spacemacs/toggle-mode-line)
