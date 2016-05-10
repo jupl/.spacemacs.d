@@ -122,9 +122,6 @@
    org-html-head-include-scripts nil
    org-html-postamble nil)
 
-  ;; Turn on EditorConfig
-  (editorconfig-mode t)
-
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
                       :family myspacemacs--variable-font)
