@@ -34,6 +34,7 @@
                                        emacs-lisp
                                        html
                                        markdown
+                                       org-html
                                        osx
                                        react
                                        restclient
@@ -118,9 +119,7 @@
    org-agenda-files `(,myspacemacs--org-base-path)
    org-export-with-author nil
    org-export-with-section-numbers nil
-   org-export-with-toc nil
-   org-html-head-include-scripts nil
-   org-html-postamble nil)
+   org-export-with-toc nil)
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
@@ -154,7 +153,6 @@
   (add-hook 'css-mode-hook 'myspacemacs//css-mode)
   (add-hook 'css-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'js2-mode-hook 'myspacemacs//js-mode)
-  (add-hook 'org-export-before-processing-hook 'myspacemacs//inline-css-hook)
   (add-hook 'org-present-mode-hook 'myspacemacs//org-present)
   (add-hook 'org-present-mode-quit-hook 'myspacemacs//org-present)
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
@@ -269,28 +267,6 @@
 (defun myspacemacs//org-present ()
   (spacemacs/toggle-mode-line)
   (spacemacs/toggle-highlight-current-line-globally))
-
-(defun myspacemacs//inline-css-hook (exporter)
-  (when (eq exporter 'html)
-    (setq-local org-html-head-extra (build-html-head))))
-
-(defun build-html-head ()
-  (let* ((inline (eq org-html-htmlize-output-type 'inline-css))
-         (background-color (if inline (face-background 'default) 'unset))
-         (color (if inline (face-foreground 'default) 'unset)))
-    (format "<style type=\"text/css\">
-  html { font-family: sans-serif; }
-  pre.src { background-color: %s; color: %s; }
-  .figure img {
-    display: block;
-    max-width: 100%%;
-    margin: 0 auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
-  @media screen { pre.src { overflow: auto; } }
-  @media print { pre.src { word-wrap: break-word; }}
-</style>
-" background-color color)))
 
 (defun add-fixed-pitch-to-face (face)
   (let* ((old-inherit (face-attribute face :inherit))
