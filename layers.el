@@ -1,3 +1,1 @@
-(add-to-list
- 'dotspacemacs-configuration-layer-path
- (concat myspacemacs--path "layers/"))
+(add-to-list 'dotspacemacs-configuration-layer-path myspacemacs--path)
