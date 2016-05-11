@@ -4,6 +4,7 @@
 
 ;; Configuration variables
 (setq-default
+ darkokai-mode-line-padding 1
  myspacemacs--gui (display-graphic-p)
  myspacemacs--osx (eq system-type 'darwin)
  myspacemacs--font-size 12
@@ -11,7 +12,7 @@
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
- myspacemacs--powerline-scale 1.4)
+ myspacemacs--powerline-scale 1.0)
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
@@ -81,10 +82,7 @@
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
    dotspacemacs-startup-lists '(recents projects bookmarks)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light
-                         monokai
-                         solarized-light)))
+   dotspacemacs-themes '(darkokai spacemacs-light spacemacs-dark)))
 
 (defun myspacemacs//user-init ()
   (setq-default
