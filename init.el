@@ -216,7 +216,7 @@
     (define-global-minor-mode myspacemacs-centered-cursor-mode
       centered-cursor-mode
       myspacemacs//centered-cursor-toggle)
-    (setq-default powerline-default-separator 'bar)
+    (setq-default powerline-default-separator nil)
     (myspacemacs-centered-cursor-mode t))
 
   ;; Clear variable set earlier
