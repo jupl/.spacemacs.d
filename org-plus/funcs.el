@@ -1,4 +1,4 @@
-(defun org-extras/build-html-head ()
+(defun org-plus/build-html-head ()
   (let* ((inline (eq org-html-htmlize-output-type 'inline-css))
          (background-color (if inline (face-background 'default) 'unset))
          (color (if inline (face-foreground 'default) 'unset)))
@@ -16,15 +16,15 @@
 </style>
 " background-color color)))
 
-(defun org-extras/inline-css-hook (exporter)
+(defun org-plus/inline-css-hook (exporter)
   (when (eq exporter 'html)
-    (setq-local org-html-head-extra (org-extras/build-html-head))))
+    (setq-local org-html-head-extra (org-plus/build-html-head))))
 
-(defun org-extras/org-present-setup ()
+(defun org-plus/org-present-setup ()
   (spacemacs/toggle-mode-line-off)
   (spacemacs/toggle-highlight-current-line-globally-off)
   (message ""))
 
-(defun org-extras/org-present-unsetup ()
+(defun org-plus/org-present-unsetup ()
   (spacemacs/toggle-mode-line-on)
   (spacemacs/toggle-highlight-current-line-globally-on))

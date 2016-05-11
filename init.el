@@ -11,7 +11,6 @@
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
- myspacemacs--org-base-path "~/org"
  myspacemacs--powerline-scale 1.4)
 
 ;; Load additional libs
@@ -34,7 +33,7 @@
                                        emacs-lisp
                                        html
                                        markdown
-                                       org-extras
+                                       org-plus
                                        osx
                                        react
                                        restclient
@@ -57,10 +56,6 @@
                                         :variables
                                         js2-mode-show-parse-errors nil
                                         js2-mode-show-strict-warnings nil)
-                                       (org
-                                        :variables
-                                        org-src-preserve-indentation t
-                                        org-startup-folded 'showall)
                                        (version-control
                                         :variables
                                         version-control-diff-tool 'diff-hl))
@@ -115,8 +110,7 @@
    neo-smart-open t
    neo-vc-integration '(face)
    neo-show-hidden-files nil
-   neo-mode-line-type 'none
-   org-agenda-files `(,myspacemacs--org-base-path))
+   neo-mode-line-type 'none)
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
@@ -186,7 +180,6 @@
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
-  (spacemacs|disable-company org-mode)
 
   ;; Add toggle to display time
   (spacemacs|add-toggle display-time
