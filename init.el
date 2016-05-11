@@ -34,7 +34,7 @@
                                        emacs-lisp
                                        html
                                        markdown
-                                       org-html
+                                       org-extras
                                        osx
                                        react
                                        restclient
@@ -116,10 +116,7 @@
    neo-vc-integration '(face)
    neo-show-hidden-files nil
    neo-mode-line-type 'none
-   org-agenda-files `(,myspacemacs--org-base-path)
-   org-export-with-author nil
-   org-export-with-section-numbers nil
-   org-export-with-toc nil)
+   org-agenda-files `(,myspacemacs--org-base-path))
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
@@ -153,8 +150,6 @@
   (add-hook 'css-mode-hook 'myspacemacs//css-mode)
   (add-hook 'css-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'js2-mode-hook 'myspacemacs//js-mode)
-  (add-hook 'org-present-mode-hook 'myspacemacs//org-present)
-  (add-hook 'org-present-mode-quit-hook 'myspacemacs//org-present)
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
@@ -263,10 +258,6 @@
 
 (defun myspacemacs//yaml-mode ()
   (diff-hl-mode t))
-
-(defun myspacemacs//org-present ()
-  (spacemacs/toggle-mode-line)
-  (spacemacs/toggle-highlight-current-line-globally))
 
 (defun add-fixed-pitch-to-face (face)
   (let* ((old-inherit (face-attribute face :inherit))
