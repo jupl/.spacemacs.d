@@ -225,6 +225,7 @@
   (setenv "INSIDE_EMACS" nil))
 
 (defun myspacemacs//after ()
+  (spaceline-compile)
   (helm-mode -1))
 
 (defun myspacemacs//css-mode ()
