@@ -4,7 +4,6 @@
 
 ;; Configuration variables
 (setq-default
- darkokai-mode-line-padding 1
  myspacemacs--gui (display-graphic-p)
  myspacemacs--osx (eq system-type 'darwin)
  myspacemacs--font-size 12
@@ -86,6 +85,7 @@
 
 (defun myspacemacs//user-init ()
   (setq-default
+   darkokai-mode-line-padding 1
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
    evil-move-cursor-back nil
