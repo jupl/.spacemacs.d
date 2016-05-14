@@ -27,6 +27,7 @@
 
 (defun myspacemacs//layers ()
   (setq-default
+   dotspacemacs-additional-packages '(darkokai-theme)
    dotspacemacs-configuration-layers '(colors
                                        dockerfile
                                        editorconfig
@@ -81,7 +82,7 @@
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
    dotspacemacs-startup-lists '(recents projects bookmarks)
-   dotspacemacs-themes '(darkokai spacemacs-light spacemacs-dark)))
+   dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai)))
 
 (defun myspacemacs//user-init ()
   (setq-default
