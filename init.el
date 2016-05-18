@@ -77,7 +77,6 @@
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-leader-key "SPC"
-   dotspacemacs-line-numbers 'relative
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
@@ -110,6 +109,9 @@
    neo-vc-integration '(face)
    neo-show-hidden-files nil
    neo-mode-line-type 'none)
+
+  ;; Turn on relative line numbers
+  (nlinum-relative-on)
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
@@ -236,8 +238,8 @@
                                        ("yield" . ?γ))))
 
 (defun myspacemacs//prog-mode ()
-  (spacemacs/toggle-line-numbers-on)
   (spacemacs/toggle-truncate-lines-on)
+  (spacemacs/toggle-line-numbers-on)
   (rainbow-mode t))
 
 (defun myspacemacs//text-mode ()
