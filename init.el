@@ -77,6 +77,7 @@
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-leader-key "SPC"
+   dotspacemacs-line-numbers 'relative
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
@@ -93,7 +94,6 @@
    exec-path-from-shell-check-startup-files nil
    frame-title-format "%b"
    frame-resize-pixelwise t
-   linum-relative-current-symbol ""
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column))
@@ -136,7 +136,6 @@
 
   ;; Appearance settings
   (global-prettify-symbols-mode t)
-  (linum-relative-toggle)
 
   ;; Additional hooks
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
@@ -201,10 +200,8 @@
 
   ;; Terminal specifics
   (unless myspacemacs--gui
-    (when (stringp linum-format)
-      (setq linum-format (concat linum-format " ")))
-    (with-eval-after-load 'linum-relative
-      (setq linum-relative-format (concat linum-relative-format " "))))
+    (when (stringp nlinum-format)
+      (setq nlinum-format (concat nlinum-format " "))))
 
   ;; GUI specifics
   (when myspacemacs--gui
@@ -239,9 +236,9 @@
                                        ("yield" . ?γ))))
 
 (defun myspacemacs//prog-mode ()
-  (linum-mode t)
-  (rainbow-mode t)
-  (toggle-truncate-lines t))
+  (spacemacs/toggle-line-numbers-on)
+  (spacemacs/toggle-truncate-lines-on)
+  (rainbow-mode t))
 
 (defun myspacemacs//text-mode ()
   (if (member major-mode '(nxml-mode yaml-mode))
