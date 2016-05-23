@@ -93,6 +93,7 @@
    exec-path-from-shell-check-startup-files nil
    frame-title-format "%b"
    frame-resize-pixelwise t
+   linum-relative-current-symbol ""
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column))
@@ -109,9 +110,6 @@
    neo-vc-integration '(face)
    neo-show-hidden-files nil
    neo-mode-line-type 'none)
-
-  ;; Turn on relative line numbers
-  (nlinum-relative-on)
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
@@ -138,6 +136,7 @@
 
   ;; Appearance settings
   (global-prettify-symbols-mode t)
+  (linum-relative-on)
 
   ;; Additional hooks
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
@@ -202,8 +201,10 @@
 
   ;; Terminal specifics
   (unless myspacemacs--gui
-    (when (stringp nlinum-format)
-      (setq nlinum-format (concat nlinum-format " "))))
+    (when (stringp linum-format)
+      (setq linum-format (concat linum-format " ")))
+    (with-eval-after-load 'linum-relative
+      (setq linum-relative-format (concat linum-relative-format " "))))
 
   ;; GUI specifics
   (when myspacemacs--gui
