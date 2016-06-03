@@ -33,6 +33,7 @@
                                        editorconfig
                                        emacs-lisp
                                        html
+                                       javascript
                                        markdown
                                        org-plus
                                        osx
@@ -51,12 +52,7 @@
                                         clojure-enable-fancify-symbols t)
                                        (git
                                         :variables
-                                        git-magit-status-fullscreen t
-                                        magit-push-always-verify nil)
-                                       (javascript
-                                        :variables
-                                        js2-mode-show-parse-errors nil
-                                        js2-mode-show-strict-warnings nil)
+                                        git-magit-status-fullscreen t)
                                        (version-control
                                         :variables
                                         version-control-diff-tool 'diff-hl))
@@ -91,9 +87,12 @@
    display-time-default-load-average nil
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
+   js2-mode-show-parse-errors nil
+   js2-mode-show-strict-warnings nil
    frame-title-format "%b"
    frame-resize-pixelwise t
    linum-relative-current-symbol ""
+   magit-push-always-verify nil
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column))
