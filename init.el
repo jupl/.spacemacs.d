@@ -29,7 +29,7 @@
   (setq-default
    dotspacemacs-additional-packages '(darkokai-theme)
    dotspacemacs-configuration-layers '(colors
-                                       dockerfile
+                                       docker
                                        editorconfig
                                        emacs-lisp
                                        html
