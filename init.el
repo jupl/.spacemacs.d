@@ -35,6 +35,7 @@
                                        html
                                        javascript
                                        markdown
+                                       org
                                        org-plus
                                        osx
                                        react
@@ -77,7 +78,11 @@
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
-   dotspacemacs-startup-lists '(recents projects bookmarks)
+   dotspacemacs-startup-lists '(agenda
+                                todos
+                                (recents . 5)
+                                (projects . 5)
+                                bookmarks)
    dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai)))
 
 (defun myspacemacs//user-init ()
