@@ -173,7 +173,6 @@
   (define-key global-map (kbd "C-q") nil)
   (evil-leader/set-key
     ";" 'evilnc-comment-or-uncomment-lines
-    "ff" 'ido-find-file
     "fF" 'ido-find-file)
 
   ;; Turn off company mode for some text related editing
@@ -223,8 +222,7 @@
   (setenv "INSIDE_EMACS" nil))
 
 (defun myspacemacs//after ()
-  (spaceline-compile)
-  (helm-mode -1))
+  (spaceline-compile))
 
 (defun myspacemacs//css-mode ()
   (smartparens-mode t))
