@@ -178,7 +178,8 @@
   (define-key global-map (kbd "C-q") nil)
   (evil-leader/set-key
     ";" 'evilnc-comment-or-uncomment-lines
-    "fF" 'ido-find-file)
+    "ff" 'ido-find-file
+    "fF" 'spacemacs/helm-find-files)
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
