@@ -139,7 +139,7 @@
   ;; TODO Try to open buffers for emacs alias in a Spacemacs friendly way
   (with-eval-after-load 'em-alias
     (eshell/alias "emacs" "for i in ${eshell-flatten-list $*} {find-file $i}")
-    (eshell/alias "erase-buffer" 'eshell-erase-buffer)
+    (eshell/alias "erase-buffer" 'eshell/clear)
     (eshell/alias "hgrep" "history | grep $*")
     (eshell/alias "la" "ls -lAh $*"))
 
@@ -271,9 +271,3 @@
 (defun auto-mode-with-symlink (file mode)
   (add-to-list 'auto-mode-alist `(,(concat "/\\." file "$") . ,mode))
   (add-to-list 'auto-mode-alist `(,(concat "/" file ".symlink$") . ,mode)))
-
-(defun eshell-erase-buffer ()
-  (interactive)
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (eshell-send-input)))
