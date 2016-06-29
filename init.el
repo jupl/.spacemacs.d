@@ -47,6 +47,8 @@
                                        yaml
                                        (auto-completion
                                         :variables
+                                        auto-completion-return-key-behavior nil
+                                        auto-completion-tab-key-behavior 'complete
                                         auto-completion-enable-help-tooltip t)
                                        (clojure
                                         :variables
