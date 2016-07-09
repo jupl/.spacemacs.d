@@ -61,7 +61,8 @@
                                         version-control-diff-tool 'diff-hl))
    dotspacemacs-delete-orphan-packages t
    dotspacemacs-distribution 'spacemacs
-   dotspacemacs-excluded-packages '(vi-tilde-fringe)))
+   dotspacemacs-excluded-packages '(evil-unimpaired ;; TODO Remove on issue fixed
+                                    vi-tilde-fringe)))
 
 (defun myspacemacs//init ()
   (setq-default
