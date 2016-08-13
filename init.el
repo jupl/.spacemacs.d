@@ -11,7 +11,8 @@
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
- myspacemacs--powerline-scale 1.0)
+ myspacemacs--powerline-scale 1.0
+ myspacemacs--use-flowtype false)
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
@@ -208,9 +209,10 @@
   ;; Turn off minor mode lines
   (spacemacs/toggle-mode-line-minor-modes-off)
 
-  ;; Add Flow support to Flycheck
-  (require 'flycheck-flow)
-  (flycheck-add-next-checker 'javascript-eslint 'javascript-flow)
+  ;; Add Flow support to Flycheck if enabled
+  (when myspacemacs--use-flowtype
+    (require 'flycheck-flow)
+    (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
   ;; Terminal specifics
   (unless myspacemacs--gui
