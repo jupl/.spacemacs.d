@@ -27,7 +27,7 @@
 
 (defun myspacemacs//layers ()
   (setq-default
-   dotspacemacs-additional-packages '(darkokai-theme)
+   dotspacemacs-additional-packages '(darkokai-theme flycheck-flow)
    dotspacemacs-configuration-layers '(colors
                                        docker
                                        editorconfig
@@ -208,6 +208,10 @@
 
   ;; Turn off minor mode lines
   (spacemacs/toggle-mode-line-minor-modes-off)
+
+  ;; Add Flow support to Flycheck
+  (require 'flycheck-flow)
+  (flycheck-add-next-checker 'javascript-eslint 'javascript-flow)
 
   ;; Terminal specifics
   (unless myspacemacs--gui
