@@ -28,7 +28,9 @@
 
 (defun myspacemacs//layers ()
   (setq-default
-   dotspacemacs-additional-packages '(darkokai-theme flycheck-flow)
+   dotspacemacs-additional-packages '(darkokai-theme
+                                      darktooth-theme
+                                      flycheck-flow)
    dotspacemacs-configuration-layers '(colors
                                        docker
                                        editorconfig
@@ -86,7 +88,7 @@
                                 (recents . 5)
                                 (projects . 5)
                                 bookmarks)
-   dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai)))
+   dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai darktooth)))
 
 (defun myspacemacs//user-init ()
   (setq-default
