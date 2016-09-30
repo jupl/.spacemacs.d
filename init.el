@@ -12,7 +12,8 @@
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
  myspacemacs--powerline-scale 1.0
- myspacemacs--use-flowtype nil)
+ myspacemacs--use-flowtype nil
+ custom-file (concat myspacemacs--path ".custom.el"))
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
