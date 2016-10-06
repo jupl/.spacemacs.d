@@ -265,7 +265,8 @@
 (defun myspacemacs//text-mode ()
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
-    (variable-pitch-mode t)
+    (unless (eq major-mode 'org-mode)
+      (variable-pitch-mode t))
     (visual-line-mode t)))
 
 (defun myspacemacs//yaml-mode ()
