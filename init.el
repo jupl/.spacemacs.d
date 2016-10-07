@@ -41,7 +41,6 @@
                                        html
                                        javascript
                                        markdown
-                                       org
                                        org-plus
                                        osx
                                        react
