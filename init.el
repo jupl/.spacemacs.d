@@ -243,7 +243,11 @@
   (setenv "INSIDE_EMACS" nil))
 
 (defun myspacemacs//after ()
-  (spaceline-compile))
+  (spaceline-compile)
+  (unless (fboundp 'display-buffer-in-major-side-window)
+    (defalias
+      'display-buffer-in-major-side-window
+      'window--make-major-side-window)))
 
 (defun myspacemacs//css-mode ()
   (smartparens-mode t))
