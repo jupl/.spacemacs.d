@@ -33,6 +33,7 @@
   (setq-default
    dotspacemacs-additional-packages '(darkokai-theme
                                       darktooth-theme
+                                      doom-themes
                                       flycheck-flow)
    dotspacemacs-configuration-layers '(colors
                                        docker
@@ -97,6 +98,7 @@
    darkokai-mode-line-padding 1
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
+   doom-neotree-enable-file-icons t
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
    js2-mode-show-parse-errors nil
@@ -215,7 +217,7 @@
 
   ;; Add Flow support to Flycheck if enabled
   (when myspacemacs--use-flowtype
-    (require 'flycheck-flow)
+    (use-package flycheck-flow)
     (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
   ;; Terminal specifics
@@ -226,6 +228,7 @@
       (setq linum-relative-format (concat linum-relative-format " "))))
 
   ;; GUI specifics
+  ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
     (defun myspacemacs//centered-cursor-toggle ()
       (unless (member major-mode '(spacemacs-buffer-mode
@@ -237,7 +240,9 @@
       centered-cursor-mode
       myspacemacs//centered-cursor-toggle)
     (setq-default powerline-default-separator nil)
-    (myspacemacs-centered-cursor-mode t))
+    (myspacemacs-centered-cursor-mode t)
+    (when (member "all-the-icons" (font-family-list))
+      (use-package doom-neotree)))
 
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
