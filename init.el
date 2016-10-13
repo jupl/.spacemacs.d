@@ -98,7 +98,9 @@
    darkokai-mode-line-padding 1
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
+   doom-enable-brighter-comments t
    doom-neotree-enable-file-icons t
+   evil-echo-state nil
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
    js2-mode-show-parse-errors nil
