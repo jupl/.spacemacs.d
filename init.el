@@ -227,20 +227,16 @@
     (with-eval-after-load 'linum-relative
       (setq linum-relative-format (concat linum-relative-format " "))))
 
+  ;; Set up custom centered cursor mode
+  (define-global-minor-mode myspacemacs-centered-cursor-mode
+    centered-cursor-mode
+    myspacemacs//centered-cursor-toggle)
+  (myspacemacs-centered-cursor-mode t)
+
   ;; GUI specifics
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
-    (defun myspacemacs//centered-cursor-toggle ()
-      (unless (member major-mode '(spacemacs-buffer-mode
-                                   eshell-mode
-                                   shell-mode
-                                   term-mode))
-        (centered-cursor-mode t)))
-    (define-global-minor-mode myspacemacs-centered-cursor-mode
-      centered-cursor-mode
-      myspacemacs//centered-cursor-toggle)
     (setq-default powerline-default-separator nil)
-    (myspacemacs-centered-cursor-mode t)
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree)))
 
@@ -253,6 +249,13 @@
     (defalias
       'display-buffer-in-major-side-window
       'window--make-major-side-window)))
+
+(defun myspacemacs//centered-cursor-toggle ()
+  (unless (member major-mode '(spacemacs-buffer-mode
+                               eshell-mode
+                               shell-mode
+                               term-mode))
+    (centered-cursor-mode t)))
 
 (defun myspacemacs//css-mode ()
   (smartparens-mode t))
