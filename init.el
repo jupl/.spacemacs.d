@@ -31,6 +31,7 @@
 (add-hook 'myspacemacs--after-hook 'myspacemacs//after)
 
 (defun myspacemacs//layers ()
+  "Configure layers/packages for Spacemacs."
   (setq-default
    dotspacemacs-additional-packages '(darkokai-theme
                                       darktooth-theme
@@ -71,6 +72,7 @@
    dotspacemacs-excluded-packages '(vi-tilde-fringe)))
 
 (defun myspacemacs//init ()
+  "Configure Spacemacs."
   (setq-default
    dotspacemacs-always-show-changelog nil
    dotspacemacs-auto-save-file-location 'cache
@@ -95,6 +97,7 @@
    dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai darktooth)))
 
 (defun myspacemacs//user-init ()
+  "Configure packages before they are loaded."
   (setq-default
    all-the-icons-scale-factor 1
    all-the-icons-default-adjust 0
@@ -117,6 +120,7 @@
    whitespace-line-column myspacemacs--max-column))
 
 (defun myspacemacs//user-config ()
+  "Configure packages after they are loaded."
   (setq-default
    diff-hl-side (if myspacemacs--gui 'left 'right)
    git-gutter-fr:side 'left-fringe
@@ -251,6 +255,7 @@
   (setenv "INSIDE_EMACS" nil))
 
 (defun myspacemacs//after ()
+  "Final configurations after everything is loaded."
   (spaceline-compile)
   (unless (fboundp 'display-buffer-in-major-side-window)
     (defalias
@@ -258,6 +263,7 @@
       'window--make-major-side-window)))
 
 (defun myspacemacs//centered-cursor-toggle ()
+  "Enable centered cursor mode for certain major modes."
   (unless (member major-mode '(spacemacs-buffer-mode
                                eshell-mode
                                shell-mode
@@ -265,6 +271,7 @@
     (centered-cursor-mode t)))
 
 (defun myspacemacs//css-mode ()
+  "Configure css mode."
   (smartparens-mode t))
 
 (defun myspacemacs//js-mode ()
@@ -276,11 +283,13 @@
                                        ("yield" . ?γ))))
 
 (defun myspacemacs//prog-mode ()
+  "Configure program mode."
   (spacemacs/toggle-truncate-lines-on)
   (spacemacs/toggle-line-numbers-on)
   (rainbow-mode t))
 
 (defun myspacemacs//text-mode ()
+  "Configure text mode."
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
     (unless (eq major-mode 'org-mode)
@@ -288,6 +297,7 @@
     (visual-line-mode t)))
 
 (defun myspacemacs//theme-neotree (&rest args)
+  "Theme Neotree, ignoring ARGS."
   (with-eval-after-load 'neotree
     (let ((height (* myspacemacs--neotree-size 10))
           (faces '(neo-banner-face
@@ -313,9 +323,11 @@
         (set-face-attribute face nil :height height)))))
 
 (defun myspacemacs//yaml-mode ()
+  "Configure yaml mode."
   (diff-hl-mode t))
 
 (defun add-fixed-pitch-to-face (face)
+  "Enforce fixed pitch to a FACE."
   (let* ((old-inherit (face-attribute face :inherit))
          (list (if (listp old-inherit) old-inherit `(,old-inherit)))
          (new-inherit (if (member 'fixed-pitch list)
@@ -324,5 +336,6 @@
     (set-face-attribute face nil :inherit new-inherit)))
 
 (defun auto-mode-with-symlink (file mode)
+  "Associate FILE (and .symlink) with MODE to auto-mode-alist."
   (add-to-list 'auto-mode-alist `(,(concat "/\\." file "$") . ,mode))
   (add-to-list 'auto-mode-alist `(,(concat "/" file ".symlink$") . ,mode)))

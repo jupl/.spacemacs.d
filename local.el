@@ -9,5 +9,6 @@
    (evil-leader/set-key "fe\C-d" 'myspacemacs//find-dotfile-local)))
 
 (defun myspacemacs//find-dotfile-local ()
+  "Open local configuration file."
   (interactive)
   (find-file myspacemacs--local))

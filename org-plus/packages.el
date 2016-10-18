@@ -1,6 +1,7 @@
 (setq org-plus-packages '(org org-present))
 
 (defun org-plus/pre-init-org ()
+  "Setup to customize org stuff."
   (spacemacs|use-package-add-hook org
     :post-init
     (spacemacs|disable-company org-mode)
