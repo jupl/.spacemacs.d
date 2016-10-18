@@ -158,7 +158,6 @@
     (eshell/alias "la" "ls -lAh $*"))
 
   ;; Appearance settings
-  (global-prettify-symbols-mode t)
   (linum-relative-on)
 
   ;; Additional hooks
@@ -273,9 +272,8 @@
   (smartparens-mode t))
 
 (defun myspacemacs//js-mode ()
+  (prettify-symbols-mode t)
   (setq-local prettify-symbols-alist '(("..." . ?…)
-                                       (">=" . ?≥)
-                                       ("<=" . ?≤)
                                        ("function" . ?ƒ)
                                        ("return" . ?▪)
                                        ("yield" . ?γ))))
