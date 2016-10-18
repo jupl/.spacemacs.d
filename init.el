@@ -109,13 +109,20 @@
    exec-path-from-shell-check-startup-files nil
    js2-mode-show-parse-errors nil
    js2-mode-show-strict-warnings nil
+
    frame-title-format "%b"
    frame-resize-pixelwise t
    linum-relative-current-symbol ""
    magit-push-always-verify nil
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    vc-follow-symlinks t
-   whitespace-line-column myspacemacs--max-column))
+   whitespace-line-column myspacemacs--max-column)
+
+  ;; Emacs 26
+  (unless (fboundp 'display-buffer-in-major-side-window)
+    (defalias
+      'display-buffer-in-major-side-window
+      'window--make-major-side-window)))
 
 (defun myspacemacs//user-config ()
   "Configure packages after they are loaded."
@@ -228,7 +235,6 @@
 
   ;; Terminal specifics
   (unless myspacemacs--gui
-    (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
     (with-eval-after-load 'linum-relative
@@ -243,6 +249,7 @@
   ;; GUI specifics
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
+    (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (setq-default powerline-default-separator nil)
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree)))
@@ -252,11 +259,7 @@
 
 (defun myspacemacs//after ()
   "Final configurations after everything is loaded."
-  (spaceline-compile)
-  (unless (fboundp 'display-buffer-in-major-side-window)
-    (defalias
-      'display-buffer-in-major-side-window
-      'window--make-major-side-window)))
+  nil)
 
 (defun myspacemacs//centered-cursor-toggle ()
   "Enable centered cursor mode for certain major modes."
