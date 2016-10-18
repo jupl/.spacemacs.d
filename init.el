@@ -169,7 +169,6 @@
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
   (add-hook 'yaml-mode-hook 'myspacemacs//yaml-mode)
-  (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
 
   ;; Additional patterns to match files to major modes
   (add-to-list 'auto-mode-alist '("\\.swig$" . web-mode))
@@ -229,6 +228,7 @@
 
   ;; Terminal specifics
   (unless myspacemacs--gui
+    (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
     (with-eval-after-load 'linum-relative
