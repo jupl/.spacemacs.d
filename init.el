@@ -169,6 +169,7 @@
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
   (add-hook 'yaml-mode-hook 'myspacemacs//yaml-mode)
+  (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
 
   ;; Additional patterns to match files to major modes
   (add-to-list 'auto-mode-alist '("\\.swig$" . web-mode))
@@ -243,8 +244,6 @@
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
     (setq-default powerline-default-separator nil)
-    (myspacemacs//theme-neotree)
-    (advice-add 'load-theme :after 'myspacemacs//theme-neotree)
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree)))
 
@@ -278,6 +277,11 @@
                                        ("return" . ?▪)
                                        ("yield" . ?γ))))
 
+(defun myspacemacs//neotree-mode ()
+  "Apply consistent height to the Neotree buffer."
+  (defface neotree-face `((nil :height ,(* myspacemacs--neotree-size 10))) nil)
+  (buffer-face-set 'neotree-face))
+
 (defun myspacemacs//prog-mode ()
   "Configure program mode."
   (spacemacs/toggle-truncate-lines-on)
@@ -291,32 +295,6 @@
     (unless (eq major-mode 'org-mode)
       (variable-pitch-mode t))
     (visual-line-mode t)))
-
-(defun myspacemacs//theme-neotree (&rest args)
-  "Theme Neotree, ignoring ARGS."
-  (with-eval-after-load 'neotree
-    (let ((height (* myspacemacs--neotree-size 10))
-          (faces '(neo-banner-face
-                   neo-header-face
-                   neo-dir-link-face
-                   neo-file-link-face
-                   neo-button-face
-                   neo-expand-btn-face
-                   neo-vc-default-face
-                   neo-vc-user-face
-                   neo-vc-up-to-date-face
-                   neo-vc-edited-face
-                   neo-vc-needs-update-face
-                   neo-vc-needs-merge-face
-                   neo-vc-unlocked-changes-face
-                   neo-vc-added-face
-                   neo-vc-removed-face
-                   neo-vc-conflict-face
-                   neo-vc-missing-face
-                   neo-vc-ignored-face
-                   neo-vc-unregistered-face)))
-      (dolist (face faces)
-        (set-face-attribute face nil :height height)))))
 
 (defun myspacemacs//yaml-mode ()
   "Configure yaml mode."
