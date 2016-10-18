@@ -7,6 +7,7 @@
  myspacemacs--gui (display-graphic-p)
  myspacemacs--osx (eq system-type 'darwin)
  myspacemacs--font-size 12
+ myspacemacs--neotree-size 10
  myspacemacs--fixed-font "DejaVu Sans Mono"
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
@@ -95,6 +96,8 @@
 
 (defun myspacemacs//user-init ()
   (setq-default
+   all-the-icons-scale-factor 1
+   all-the-icons-default-adjust 0
    darkokai-mode-line-padding 1
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
@@ -120,7 +123,7 @@
    git-gutter-fr+-side 'left-fringe
    grep-highlight-matches t
    fill-column myspacemacs--max-column
-   neo-window-width 25
+   neo-banner-message nil
    neo-smart-open t
    neo-vc-integration '(face)
    neo-show-hidden-files nil
@@ -239,6 +242,29 @@
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
     (setq-default powerline-default-separator nil)
+    (with-eval-after-load 'neotree
+      (let ((height (* myspacemacs--neotree-size 10))
+            (faces '(neo-banner-face
+                     neo-header-face
+                     neo-dir-link-face
+                     neo-file-link-face
+                     neo-button-face
+                     neo-expand-btn-face
+                     neo-vc-default-face
+                     neo-vc-user-face
+                     neo-vc-up-to-date-face
+                     neo-vc-edited-face
+                     neo-vc-needs-update-face
+                     neo-vc-needs-merge-face
+                     neo-vc-unlocked-changes-face
+                     neo-vc-added-face
+                     neo-vc-removed-face
+                     neo-vc-conflict-face
+                     neo-vc-missing-face
+                     neo-vc-ignored-face
+                     neo-vc-unregistered-face)))
+        (dolist (face faces)
+          (set-face-attribute face nil :height height))))
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree)))
 
