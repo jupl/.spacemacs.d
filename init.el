@@ -89,9 +89,7 @@
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
-   dotspacemacs-startup-lists '(agenda
-                                todos
-                                (recents . 5)
+   dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
    dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai darktooth)))
