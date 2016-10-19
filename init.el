@@ -107,6 +107,7 @@
    evil-echo-state nil
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
+   helm-mode-handle-completion-in-region nil
    js2-mode-show-parse-errors nil
    js2-mode-show-strict-warnings nil
 
