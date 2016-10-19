@@ -278,6 +278,7 @@
   (smartparens-mode t))
 
 (defun myspacemacs//js-mode ()
+  "Configure js mode."
   (prettify-symbols-mode t)
   (setq js--prettify-symbols-alist '(("function" . ?ƒ)
                                      ("return" . ?▪)
