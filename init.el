@@ -51,6 +51,7 @@
                                        shell
                                        shell-scripts
                                        syntax-checking
+                                       typescript
                                        vimscript
                                        yaml
                                        (auto-completion
