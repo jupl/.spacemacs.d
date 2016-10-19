@@ -104,6 +104,7 @@
    display-time-default-load-average nil
    doom-enable-brighter-comments t
    doom-neotree-enable-file-icons t
+   doom-neotree-enable-variable-pitch t
    evil-echo-state nil
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
