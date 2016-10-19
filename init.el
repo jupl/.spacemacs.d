@@ -279,10 +279,9 @@
 
 (defun myspacemacs//js-mode ()
   (prettify-symbols-mode t)
-  (setq-local prettify-symbols-alist '(("..." . ?…)
-                                       ("function" . ?ƒ)
-                                       ("return" . ?▪)
-                                       ("yield" . ?γ))))
+  (setq js--prettify-symbols-alist '(("function" . ?ƒ)
+                                     ("return" . ?▪)
+                                     ("yield" . ?γ))))
 
 (defun myspacemacs//neotree-mode ()
   "Apply consistent height to the Neotree buffer."
