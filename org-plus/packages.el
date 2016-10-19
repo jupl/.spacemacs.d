@@ -17,7 +17,10 @@
        org-startup-folded 'showall)
       (add-to-list 'org-agenda-files "~/org")
       (add-hook 'org-export-before-processing-hook
-                'org-plus/inline-css-hook)))
+                'org-plus/inline-css-hook))))
+
+(defun org-plus/pre-init-org-present()
+  "Setup to customize org-present."
   (spacemacs|use-package-add-hook org-present
     :post-init
     (add-hook 'org-present-mode-hook 'org-plus/org-present-setup)
