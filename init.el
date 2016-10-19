@@ -254,7 +254,9 @@
     (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (setq-default powerline-default-separator nil)
     (when (member "all-the-icons" (font-family-list))
-      (use-package doom-neotree)))
+      (use-package doom-neotree))
+    (when (fboundp 'mac-auto-operator-composition-mode)
+      (mac-auto-operator-composition-mode)))
 
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
