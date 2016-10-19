@@ -256,7 +256,7 @@
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree))
     (when (fboundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composition-mode)))
+      (mac-auto-operator-composition-mode t)))
 
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
