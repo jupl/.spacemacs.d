@@ -110,7 +110,6 @@
    helm-mode-handle-completion-in-region nil
    js2-mode-show-parse-errors nil
    js2-mode-show-strict-warnings nil
-
    frame-title-format "%b"
    frame-resize-pixelwise t
    linum-relative-current-symbol ""
