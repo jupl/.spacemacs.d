@@ -1,5 +1,4 @@
-.local.el
-.custom.el
+/private/
 
 # Created by https://www.gitignore.io/api/emacs
 

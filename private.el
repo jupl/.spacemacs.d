@@ -1,4 +1,6 @@
-(setq-default myspacemacs--local (concat myspacemacs--path ".local.el"))
+(setq-default
+ custom-file (concat myspacemacs--path "private/custom.el")
+ myspacemacs--local (concat myspacemacs--path "private/local.el"))
 
 (when (file-exists-p myspacemacs--local)
   (load myspacemacs--local 'noerror))

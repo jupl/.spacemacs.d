@@ -15,13 +15,10 @@
  myspacemacs--powerline-scale 1.0
  myspacemacs--use-flowtype nil)
 
-;; Set custom-file to a separate location
-(setq-default custom-file (concat myspacemacs--path ".custom.el"))
-
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
 (load (concat myspacemacs--path "layers.el"))
-(load (concat myspacemacs--path "local.el"))
+(load (concat myspacemacs--path "private.el"))
 
 ;; Set up hooks
 (add-hook 'myspacemacs--layers-hook 'myspacemacs//layers)
