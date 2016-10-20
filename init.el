@@ -248,8 +248,11 @@
   ;; GUI specifics
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
-    (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (setq-default powerline-default-separator nil)
+    (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
+    (with-eval-after-load 'org
+      (dolist (face org-level-faces)
+        (set-face-attribute face nil :inherit 'variable-pitch)))
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree))
     (when (fboundp 'mac-auto-operator-composition-mode)
