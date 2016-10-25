@@ -2,6 +2,10 @@
 (with-eval-after-load 'exec-path-from-shell
   (exec-path-from-shell-setenv "INSIDE_EMACS" emacs-version))
 
+;; Enable ligatures if available
+(when (fboundp 'mac-auto-operator-composition-mode)
+  (mac-auto-operator-composition-mode t))
+
 ;; Configuration variables
 (setq-default
  myspacemacs--gui (display-graphic-p)
@@ -254,9 +258,7 @@
       (dolist (face org-level-faces)
         (set-face-attribute face nil :inherit 'variable-pitch)))
     (when (member "all-the-icons" (font-family-list))
-      (use-package doom-neotree))
-    (when (fboundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composition-mode t)))
+      (use-package doom-neotree)))
 
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
