@@ -210,22 +210,6 @@
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
 
-  ;; Add toggle to display time
-  (spacemacs|add-toggle display-time
-    :status display-time-mode
-    :on (display-time-mode)
-    :off (display-time-mode -1)
-    :documentation "Display time in modeline"
-    :evil-leader "tmT")
-
-  ;; Add toggle for syntax highlighting
-  (spacemacs|add-toggle syntax-highlighting
-    :status font-lock-mode
-    :on (font-lock-mode)
-    :off (font-lock-mode -1)
-    :documentation "Syntax highlighting"
-    :evil-leader "tS")
-
   ;; Turn off minor mode lines
   (spacemacs/toggle-mode-line-minor-modes-off)
 
