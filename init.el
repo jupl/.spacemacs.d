@@ -38,7 +38,8 @@
                                       darktooth-theme
                                       doom-themes
                                       flycheck-flow)
-   dotspacemacs-configuration-layers '(colors
+   dotspacemacs-configuration-layers '(clojure
+                                       colors
                                        docker
                                        editorconfig
                                        emacs-lisp
@@ -60,9 +61,6 @@
                                         auto-completion-return-key-behavior nil
                                         auto-completion-tab-key-behavior 'complete
                                         auto-completion-enable-help-tooltip t)
-                                       (clojure
-                                        :variables
-                                        clojure-enable-fancify-symbols t)
                                        (git
                                         :variables
                                         git-magit-status-fullscreen t)
