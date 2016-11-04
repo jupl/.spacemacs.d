@@ -299,8 +299,7 @@
   "Configure text mode."
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
-    (unless (eq major-mode 'org-mode)
-      (variable-pitch-mode t))
+    (variable-pitch-mode t)
     (visual-line-mode t)))
 
 (defun myspacemacs//yaml-mode ()
