@@ -16,7 +16,7 @@
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
- myspacemacs--powerline-scale 1.3
+ myspacemacs--powerline-scale 1.4
  myspacemacs--use-flowtype nil)
 
 ;; Load additional libs
