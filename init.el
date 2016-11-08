@@ -176,7 +176,6 @@
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
-  (add-hook 'yaml-mode-hook 'myspacemacs//yaml-mode)
 
   ;; Additional patterns to match files to major modes
   (add-to-list 'auto-mode-alist '("\\.swig$" . web-mode))
@@ -283,11 +282,8 @@
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
     (variable-pitch-mode t)
-    (visual-line-mode t)))
-
-(defun myspacemacs//yaml-mode ()
-  "Configure yaml mode."
-  (diff-hl-mode t))
+    (visual-line-mode t)
+    (run-with-timer 0 nil 'spacemacs/toggle-line-numbers-off)))
 
 (defun add-fixed-pitch-to-face (face)
   "Enforce fixed pitch to a FACE."
