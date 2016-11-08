@@ -81,13 +81,11 @@
                                :size ,myspacemacs--font-size
                                :powerline-scale ,myspacemacs--powerline-scale)
    dotspacemacs-editing-style 'vim
-   dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-emacs-leader-key "C-l"
+   dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-enable-lazy-installation nil
-   dotspacemacs-leader-key "SPC"
    dotspacemacs-line-numbers 'relative
-   dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
@@ -192,7 +190,6 @@
   (auto-mode-with-symlink "tern-project" 'json-mode)
 
   ;; Additional keybinds
-  (define-key evil-motion-state-map ";" 'evil-ex)
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-visual-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
@@ -200,9 +197,7 @@
   (define-key global-map (kbd "C-h h") nil)
   (define-key global-map (kbd "C-q") nil)
   (evil-leader/set-key
-    ";" 'evilnc-comment-or-uncomment-lines
-    "ff" 'ido-find-file
-    "fF" 'spacemacs/helm-find-files)
+    ";" 'evilnc-comment-or-uncomment-lines)
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
