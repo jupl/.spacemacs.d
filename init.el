@@ -85,7 +85,6 @@
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-enable-lazy-installation nil
-   dotspacemacs-line-numbers 'relative
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
@@ -163,6 +162,9 @@
     (eshell/alias "erase-buffer" 'eshell/clear)
     (eshell/alias "hgrep" "history | grep $*")
     (eshell/alias "la" "ls -lAh $*"))
+
+  ;; Appearance settings
+  (linum-relative-on)
 
   ;; Additional hooks
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
@@ -275,8 +277,7 @@
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
     (variable-pitch-mode t)
-    (visual-line-mode t)
-    (run-with-timer 0 nil 'spacemacs/toggle-line-numbers-off)))
+    (visual-line-mode t)))
 
 (defun add-fixed-pitch-to-face (face)
   "Enforce fixed pitch to a FACE."
