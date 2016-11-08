@@ -1,0 +1,22 @@
+html {
+  font-family: sans-serif;
+}
+
+.figure img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media screen {
+  pre.src {
+    overflow: auto;
+  }
+}
+
+@media print {
+  pre.src {
+    word-wrap: break-word;
+  }
+}
