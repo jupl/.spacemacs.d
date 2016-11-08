@@ -85,6 +85,7 @@
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-leader-key "SPC"
+   dotspacemacs-line-numbers 'relative
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
@@ -166,9 +167,6 @@
     (eshell/alias "erase-buffer" 'eshell/clear)
     (eshell/alias "hgrep" "history | grep $*")
     (eshell/alias "la" "ls -lAh $*"))
-
-  ;; Appearance settings
-  (linum-relative-on)
 
   ;; Additional hooks
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
