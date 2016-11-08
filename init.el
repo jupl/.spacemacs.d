@@ -8,16 +8,16 @@
 
 ;; Configuration variables
 (setq-default
- myspacemacs--gui (display-graphic-p)
- myspacemacs--osx (eq system-type 'darwin)
- myspacemacs--font-size 12
- myspacemacs--neotree-size 10
  myspacemacs--fixed-font "DejaVu Sans Mono"
- myspacemacs--variable-font "DejaVu Sans"
- myspacemacs--path (file-name-directory load-file-name)
+ myspacemacs--font-size 12
+ myspacemacs--gui (display-graphic-p)
  myspacemacs--max-column 79
+ myspacemacs--neotree-size 10
+ myspacemacs--osx (eq system-type 'darwin)
+ myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
- myspacemacs--use-flowtype nil)
+ myspacemacs--use-flowtype nil
+ myspacemacs--variable-font "DejaVu Sans")
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
@@ -66,7 +66,8 @@
                                         git-magit-status-fullscreen t)
                                        (version-control
                                         :variables
-                                        version-control-diff-tool 'diff-hl))
+                                        version-control-diff-tool (if myspacemacs--gui 'diff-hl 'git-gutter)
+                                        version-control-diff-side 'left))
    dotspacemacs-delete-orphan-packages t
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-excluded-packages '(vi-tilde-fringe)))
@@ -129,9 +130,6 @@
 (defun myspacemacs//user-config ()
   "Configure packages after they are loaded."
   (setq-default
-   diff-hl-side (if myspacemacs--gui 'left 'right)
-   git-gutter-fr:side 'left-fringe
-   git-gutter-fr+-side 'left-fringe
    grep-highlight-matches t
    fill-column myspacemacs--max-column
    neo-banner-message nil
