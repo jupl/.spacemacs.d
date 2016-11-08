@@ -16,7 +16,7 @@
  myspacemacs--variable-font "DejaVu Sans"
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--max-column 79
- myspacemacs--powerline-scale 1.0
+ myspacemacs--powerline-scale 1.3
  myspacemacs--use-flowtype nil)
 
 ;; Load additional libs
@@ -137,7 +137,8 @@
    neo-smart-open t
    neo-vc-integration '(face)
    neo-show-hidden-files nil
-   neo-mode-line-type 'none)
+   neo-mode-line-type 'none
+   powerline-default-separator (if myspacemacs--gui 'arrow-fade nil))
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil
@@ -210,22 +211,6 @@
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
 
-  ;; Add toggle to display time
-  (spacemacs|add-toggle display-time
-    :status display-time-mode
-    :on (display-time-mode)
-    :off (display-time-mode -1)
-    :documentation "Display time in modeline"
-    :evil-leader "tmT")
-
-  ;; Add toggle for syntax highlighting
-  (spacemacs|add-toggle syntax-highlighting
-    :status font-lock-mode
-    :on (font-lock-mode)
-    :off (font-lock-mode -1)
-    :documentation "Syntax highlighting"
-    :evil-leader "tS")
-
   ;; Turn off minor mode lines
   (spacemacs/toggle-mode-line-minor-modes-off)
 
@@ -250,7 +235,6 @@
   ;; GUI specifics
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
-    (setq-default powerline-default-separator nil)
     (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (with-eval-after-load 'org
       (dolist (face org-level-faces)
