@@ -13,6 +13,7 @@
        org-export-with-toc nil
        org-html-head-include-scripts nil
        org-html-postamble nil
+       org-html-style-include-default nil
        org-src-preserve-indentation t
        org-startup-folded 'showall)
       (add-to-list 'org-agenda-files "~/org")
