@@ -150,6 +150,7 @@
   (with-eval-after-load 'org
     (mapc 'add-fixed-pitch-to-face '(org-code
                                      org-block
+                                     org-formula
                                      org-table
                                      org-verbatim)))
   (with-eval-after-load 'markdown-mode
