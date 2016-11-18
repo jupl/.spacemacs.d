@@ -113,7 +113,6 @@
    js2-mode-show-strict-warnings nil
    frame-title-format "%b"
    frame-resize-pixelwise t
-   linum-relative-current-symbol ""
    magit-push-always-verify nil
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    vc-follow-symlinks t
@@ -215,7 +214,8 @@
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
     (with-eval-after-load 'linum-relative
-      (setq linum-relative-format (concat linum-relative-format " "))))
+      (when (stringp linum-relative-format)
+        (setq linum-relative-format (concat linum-relative-format " ")))))
 
   ;; Set up custom centered cursor mode
   (define-global-minor-mode myspacemacs-centered-cursor-mode
