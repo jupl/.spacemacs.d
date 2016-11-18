@@ -130,10 +130,10 @@
    grep-highlight-matches t
    fill-column myspacemacs--max-column
    neo-banner-message nil
+   neo-mode-line-type 'none
+   neo-show-hidden-files nil
    neo-smart-open t
    neo-vc-integration '(face)
-   neo-show-hidden-files nil
-   neo-mode-line-type 'none
    powerline-default-separator (if myspacemacs--gui 'arrow-fade nil))
 
   ;; Override the default variable pitch font
@@ -267,7 +267,6 @@
 (defun myspacemacs//prog-mode ()
   "Configure program mode."
   (spacemacs/toggle-truncate-lines-on)
-  (spacemacs/toggle-line-numbers-on)
   (rainbow-mode t))
 
 (defun myspacemacs//text-mode ()
