@@ -216,6 +216,8 @@
   (unless myspacemacs--gui
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
+    (with-eval-after-load 'git-gutter
+      (git-gutter:linum-setup))
     (with-eval-after-load 'linum-relative
       (setq linum-relative-format (concat linum-relative-format " "))))
 
