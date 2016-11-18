@@ -82,9 +82,10 @@
                                :powerline-scale ,myspacemacs--powerline-scale)
    dotspacemacs-editing-style 'vim
    dotspacemacs-emacs-leader-key "C-l"
+   dotspacemacs-enable-lazy-installation nil
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
-   dotspacemacs-enable-lazy-installation nil
+   dotspacemacs-line-numbers 'relative
    dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
@@ -163,9 +164,6 @@
     (eshell/alias "hgrep" "history | grep $*")
     (eshell/alias "la" "ls -lAh $*"))
 
-  ;; Appearance settings
-  (linum-relative-on)
-
   ;; Additional hooks
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'css-mode-hook 'myspacemacs//css-mode)
@@ -216,8 +214,6 @@
   (unless myspacemacs--gui
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
-    (with-eval-after-load 'git-gutter
-      (git-gutter:linum-setup))
     (with-eval-after-load 'linum-relative
       (setq linum-relative-format (concat linum-relative-format " "))))
 
@@ -278,8 +274,9 @@
   "Configure text mode."
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
+    (spacemacs/toggle-truncate-lines-off)
     (variable-pitch-mode t)
-    (visual-line-mode t)))
+    (run-with-timer 0 nil 'spacemacs/toggle-line-numbers-off)))
 
 (defun add-fixed-pitch-to-face (face)
   "Enforce fixed pitch to a FACE."
