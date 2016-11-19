@@ -85,9 +85,13 @@
    dotspacemacs-default-font `(,myspacemacs--fixed-font
                                :size ,myspacemacs--font-size
                                :powerline-scale ,myspacemacs--powerline-scale)
+   dotspacemacs-editing-style 'vim
+   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
+   dotspacemacs-leader-key "SPC"
    dotspacemacs-line-numbers 'relative
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
