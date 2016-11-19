@@ -34,72 +34,65 @@
 (defun myspacemacs//layers ()
   "Configure layers/packages for Spacemacs."
   (setq-default
-   dotspacemacs-additional-packages '(darkokai-theme
-                                      darktooth-theme
-                                      doom-themes
-                                      flycheck-flow)
-   dotspacemacs-configuration-layers '(clojure
-                                       colors
-                                       docker
-                                       editorconfig
-                                       emacs-lisp
-                                       html
-                                       javascript
-                                       markdown
-                                       org-plus
-                                       osx
-                                       react
-                                       restclient
-                                       shell
-                                       shell-scripts
-                                       syntax-checking
-                                       typescript
-                                       vimscript
-                                       yaml
-                                       (auto-completion
-                                        :variables
-                                        auto-completion-return-key-behavior nil
-                                        auto-completion-tab-key-behavior 'complete
-                                        auto-completion-enable-help-tooltip t)
-                                       (git
-                                        :variables
-                                        git-magit-status-fullscreen t)
-                                       (version-control
-                                        :variables
-                                        version-control-diff-tool (if myspacemacs--gui 'diff-hl 'git-gutter)
-                                        version-control-diff-side 'left))
-   dotspacemacs-delete-orphan-packages t
+   dotspacemacs-additional-packages '(doom-themes)
+   dotspacemacs-configuration-layers
+   '(clojure
+     colors
+     docker
+     editorconfig
+     emacs-lisp
+     helm
+     html
+     javascript
+     markdown
+     org-plus
+     osx
+     react
+     restclient
+     shell
+     shell-scripts
+     syntax-checking
+     typescript
+     vimscript
+     yaml
+     (auto-completion
+      :variables
+      auto-completion-return-key-behavior nil
+      auto-completion-tab-key-behavior 'complete
+      auto-completion-enable-help-tooltip t)
+     (git
+      :variables
+      git-magit-status-fullscreen t)
+     (version-control
+      :variables
+      version-control-diff-tool (if myspacemacs--gui 'diff-hl 'git-gutter)
+      version-control-diff-side 'left))
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-excluded-packages '(vi-tilde-fringe)))
 
 (defun myspacemacs//init ()
   "Configure Spacemacs."
   (setq-default
-   dotspacemacs-always-show-changelog nil
-   dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-default-font `(,myspacemacs--fixed-font
                                :size ,myspacemacs--font-size
                                :powerline-scale ,myspacemacs--powerline-scale)
-   dotspacemacs-editing-style 'vim
-   dotspacemacs-emacs-leader-key "C-l"
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-line-numbers 'relative
-   dotspacemacs-major-mode-emacs-leader-key "C-S-l"
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
+   dotspacemacs-scratch-mode 'fundamental-mode
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
-   dotspacemacs-themes '(spacemacs-dark spacemacs-light darkokai darktooth)))
+   dotspacemacs-visual-line-move-text t))
 
 (defun myspacemacs//user-init ()
   "Configure packages before they are loaded."
   (setq-default
    all-the-icons-scale-factor 1
    all-the-icons-default-adjust 0
-   darkokai-mode-line-padding 1
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
    doom-enable-brighter-comments t
@@ -131,18 +124,15 @@
    fill-column myspacemacs--max-column
    neo-banner-message nil
    neo-mode-line-type 'none
-   neo-show-hidden-files nil
    neo-smart-open t
    neo-vc-integration '(face)
    powerline-default-separator (if myspacemacs--gui 'arrow-fade nil))
 
   ;; Override the default variable pitch font
-  (set-face-attribute 'variable-pitch nil
-                      :family myspacemacs--variable-font)
+  (set-face-attribute 'variable-pitch nil :family myspacemacs--variable-font)
 
   ;; Use fixed-pitch font in certain text mode faces
-  (set-face-attribute 'fixed-pitch nil
-                      :family myspacemacs--fixed-font)
+  (set-face-attribute 'fixed-pitch nil :family myspacemacs--fixed-font)
   (with-eval-after-load 'org
     (mapc 'add-fixed-pitch-to-face '(org-code
                                      org-block
@@ -195,8 +185,7 @@
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
   (define-key global-map (kbd "C-h h") nil)
   (define-key global-map (kbd "C-q") nil)
-  (evil-leader/set-key
-    ";" 'evilnc-comment-or-uncomment-lines)
+  (evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
@@ -209,7 +198,7 @@
     (use-package flycheck-flow)
     (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
-  ;; Terminal specifics
+  ;; Add a space between line numbers and content in non-gui mode
   (unless myspacemacs--gui
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
@@ -227,9 +216,6 @@
   ;; For icons see https://github.com/domtronn/all-the-icons.el
   (when myspacemacs--gui
     (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
-    (with-eval-after-load 'org
-      (dolist (face org-level-faces)
-        (set-face-attribute face nil :inherit 'variable-pitch)))
     (when (member "all-the-icons" (font-family-list))
       (use-package doom-neotree)))
 
