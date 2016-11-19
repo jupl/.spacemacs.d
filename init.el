@@ -8,6 +8,10 @@
 
 ;; Configuration variables
 (setq-default
+ myspacemacs--centered-cursor-ignore '(spacemacs-buffer-mode
+                                       eshell-mode
+                                       shell-mode
+                                       term-mode)
  myspacemacs--fixed-font "DejaVu Sans Mono"
  myspacemacs--font-size 12
  myspacemacs--gui (display-graphic-p)
@@ -214,7 +218,9 @@
   ;; Set up custom centered cursor mode
   (define-global-minor-mode myspacemacs-centered-cursor-mode
     centered-cursor-mode
-    myspacemacs//centered-cursor-toggle)
+    (lambda ()
+      (unless (member major-mode myspacemacs--centered-cursor-ignore)
+        (centered-cursor-mode t))))
   (myspacemacs-centered-cursor-mode t)
 
   ;; GUI specifics
@@ -230,14 +236,6 @@
 (defun myspacemacs//after ()
   "Final configurations after everything is loaded."
   nil)
-
-(defun myspacemacs//centered-cursor-toggle ()
-  "Enable centered cursor mode for certain major modes."
-  (unless (member major-mode '(spacemacs-buffer-mode
-                               eshell-mode
-                               shell-mode
-                               term-mode))
-    (centered-cursor-mode t)))
 
 (defun myspacemacs//css-mode ()
   "Configure css mode."
