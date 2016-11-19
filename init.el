@@ -38,7 +38,7 @@
    dotspacemacs-configuration-layers
    '(clojure
      colors
-     docker
+     command-log
      editorconfig
      emacs-lisp
      helm
@@ -57,12 +57,17 @@
      yaml
      (auto-completion
       :variables
+      auto-completion-enable-help-tooltip t
+      auto-completion-enable-snippets-in-popup t
+      auto-completion-enable-sort-by-usage t
       auto-completion-return-key-behavior nil
-      auto-completion-tab-key-behavior 'complete
-      auto-completion-enable-help-tooltip t)
+      auto-completion-tab-key-behavior 'complete)
      (git
       :variables
       git-magit-status-fullscreen t)
+     (spell-checking
+      :variables
+      spell-checking-enable-by-default nil)
      (version-control
       :variables
       version-control-diff-tool (if myspacemacs--gui 'diff-hl 'git-gutter)
