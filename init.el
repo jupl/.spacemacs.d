@@ -268,6 +268,7 @@
   (if (member major-mode '(nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
     (spacemacs/toggle-truncate-lines-off)
+    (toggle-word-wrap t)
     (variable-pitch-mode t)
     (run-with-timer 0 nil 'spacemacs/toggle-line-numbers-off)))
 
