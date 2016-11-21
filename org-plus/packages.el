@@ -30,7 +30,6 @@
       (evilified-state-evilify nil org-present-mode-keymap
         (kbd "<prior>") 'org-present-prev
         (kbd "<next>") 'org-present-next
-        (kbd "<escape>") 'org-present-quit
         "j" 'org-present-prev
         "k" 'org-present-next
         "." 'org-present-beginning))))
