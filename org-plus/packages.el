@@ -24,5 +24,13 @@
   "Setup to customize org-present."
   (spacemacs|use-package-add-hook org-present
     :post-init
-    (add-hook 'org-present-mode-hook 'org-plus/org-present-setup)
-    (add-hook 'org-present-mode-quit-hook 'org-plus/org-present-unsetup)))
+    (progn
+      (add-hook 'org-present-mode-hook 'org-plus/org-present-setup)
+      (add-hook 'org-present-mode-quit-hook 'org-plus/org-present-unsetup)
+      (evilified-state-evilify nil org-present-mode-keymap
+        (kbd "<prior>") 'org-present-prev
+        (kbd "<next>") 'org-present-next
+        (kbd "<escape>") 'org-present-quit
+        "j" 'org-present-prev
+        "k" 'org-present-next
+        "." 'org-present-beginning))))
