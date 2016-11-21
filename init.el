@@ -174,6 +174,7 @@
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
+  (remove-hook 'text-mode-hook 'linum-mode)
 
   ;; Additional patterns to match files to major modes
   (add-to-list 'auto-mode-alist '("\\.swig$" . web-mode))
@@ -269,8 +270,7 @@
       (myspacemacs//prog-mode)
     (spacemacs/toggle-truncate-lines-off)
     (toggle-word-wrap t)
-    (variable-pitch-mode t)
-    (run-with-timer 0 nil 'spacemacs/toggle-line-numbers-off)))
+    (variable-pitch-mode t)))
 
 (defun add-fixed-pitch-to-face (face)
   "Enforce fixed pitch to a FACE."
