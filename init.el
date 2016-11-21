@@ -174,6 +174,7 @@
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
+  (remove-hook 'prog-mode-hook 'linum-mode)
   (remove-hook 'text-mode-hook 'linum-mode)
 
   ;; Additional patterns to match files to major modes
@@ -262,6 +263,7 @@
 (defun myspacemacs//prog-mode ()
   "Configure program mode."
   (spacemacs/toggle-truncate-lines-on)
+  (spacemacs/toggle-line-numbers-on)
   (rainbow-mode t))
 
 (defun myspacemacs//text-mode ()
