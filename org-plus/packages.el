@@ -11,13 +11,16 @@
        org-export-with-author nil
        org-export-with-section-numbers nil
        org-export-with-toc nil
+       org-export-allow-bind-keywords t
        org-html-head-include-scripts nil
        org-html-postamble nil
        org-html-style-include-default nil
        org-latex-compiler "xelatex"
+       org-latex-listings 'minted
        org-src-preserve-indentation t
        org-startup-folded 'showall)
       (add-to-list 'org-agenda-files "~/org")
+      (add-to-list 'org-latex-packages-alist '("" "minted"))
       (add-hook 'org-export-before-processing-hook
                 'org-plus/inline-css-hook))))
 
