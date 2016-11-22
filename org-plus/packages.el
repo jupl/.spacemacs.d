@@ -1,5 +1,19 @@
 (setq org-plus-packages '(org org-present))
 
+;; For LaTeX and Beamer:
+;; 1. Install LaTeX (and run "tlmgr update --self --all")
+;; 2. Install Fira fonts
+;; 3. Install Pygments
+;; 4. Install the following TeX packages
+;;   - beamertheme-metropolis
+;;   - minted
+;;   - wrapfig
+;;   - capt-of
+;;   - fvextra
+;;   - ifplatform
+;;   - xstring
+;;   - pgfopts
+
 (defun org-plus/post-init-org ()
   "Setup to customize org stuff."
   (spacemacs|disable-company org-mode)
@@ -24,6 +38,11 @@
   (with-eval-after-load 'ox-latex
     (setq-default
      org-latex-compiler "xelatex"
+     org-latex-pdf-process `(,(string-join '("%latex"
+                                             "-shell-escape"
+                                             "-interaction nonstopmode"
+                                             "-output-directory %o %f")
+                                           " "))
      org-latex-listings 'minted)
     (add-to-list 'org-latex-packages-alist '("" "minted"))
     (add-to-list 'org-latex-logfiles-extensions "pyg")))
