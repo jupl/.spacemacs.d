@@ -14,6 +14,7 @@
        org-html-head-include-scripts nil
        org-html-postamble nil
        org-html-style-include-default nil
+       org-latex-compiler "xelatex"
        org-src-preserve-indentation t
        org-startup-folded 'showall)
       (add-to-list 'org-agenda-files "~/org")
