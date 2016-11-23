@@ -33,19 +33,21 @@
      org-html-head-include-scripts nil
      org-html-postamble nil
      org-html-style-include-default nil)
-    (add-hook 'org-export-before-processing-hook
-              'org-plus/inline-css-hook))
+    (add-hook 'org-export-before-processing-hook 'org-plus/css-hook))
   (with-eval-after-load 'ox-latex
-    (setq-default
-     org-latex-compiler "xelatex"
-     org-latex-pdf-process `(,(string-join '("%latex"
-                                             "-shell-escape"
-                                             "-interaction nonstopmode"
-                                             "-output-directory %o %f")
-                                           " "))
-     org-latex-listings 'minted)
-    (add-to-list 'org-latex-packages-alist '("" "minted"))
-    (add-to-list 'org-latex-logfiles-extensions "pyg")))
+    (let ((options (append (cons "%latex" org-plus-pdf-options)
+                           (if org-plus-use-pygments '("-shell-escape"))
+                           '("-interaction nonstopmode"
+                             "-output-directory %o %f"))))
+      (setq-default
+       org-latex-compiler "xelatex"
+       org-latex-pdf-process `(,(string-join options " "))))
+    (when org-plus-use-pygments
+      (setq-default org-latex-listings 'minted)
+      (add-to-list 'org-latex-packages-alist '("" "minted"))
+      (add-to-list 'org-latex-logfiles-extensions "pyg"))
+    (when org-plus-pdf-no-tex
+      (add-to-list 'org-latex-logfiles-extensions "tex"))))
 
 (defun org-plus/post-init-org-present ()
   "Setup to customize org-present."

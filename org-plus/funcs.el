@@ -20,7 +20,7 @@
     (insert-file-contents (concat org-plus-path "theme.html"))
     (buffer-string)))
 
-(defun org-plus/inline-css-hook (exporter)
+(defun org-plus/css-hook (exporter)
   "If EXPORTER is html, add html customizations."
   (when (eq exporter 'html)
     (setq-local org-html-head-extra (org-plus/build-html-head))))

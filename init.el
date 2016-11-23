@@ -49,7 +49,6 @@
      html
      javascript
      markdown
-     org-plus
      osx
      react
      restclient
@@ -69,6 +68,10 @@
      (git
       :variables
       git-magit-status-fullscreen t)
+     (org-plus
+      :variables
+      org-plus-pdf-no-tex t
+      org-plus-use-pygments t)
      (spell-checking
       :variables
       spell-checking-enable-by-default nil)
