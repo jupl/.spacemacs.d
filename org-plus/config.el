@@ -1,3 +1,6 @@
+(defvar org-plus-html-pygments-style "default"
+  "Style to use for code blocks with Pygments.")
+
 (defvar org-plus-path (file-name-directory load-file-name)
   "Base path for reading assets for this layer.")
 

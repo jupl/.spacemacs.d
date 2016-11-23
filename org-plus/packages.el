@@ -33,7 +33,11 @@
      org-html-head-include-scripts nil
      org-html-postamble nil
      org-html-style-include-default nil)
-    (add-hook 'org-export-before-processing-hook 'org-plus/css-hook))
+    (add-hook 'org-export-before-processing-hook 'org-plus/css-hook)
+    (when org-plus-use-pygments
+      (defun org-html-src-block (&rest arguments)
+        (apply 'org-plus/org-html-src-block arguments))
+      (setq-default org-html-htmlize-output-type nil)))
   (with-eval-after-load 'ox-latex
     (let ((options (append (cons "%latex" org-plus-pdf-options)
                            (if org-plus-use-pygments '("-shell-escape"))

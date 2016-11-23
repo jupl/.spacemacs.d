@@ -70,6 +70,7 @@
       git-magit-status-fullscreen t)
      (org-plus
       :variables
+      org-plus-html-pygments-style "xcode"
       org-plus-pdf-no-tex t
       org-plus-use-pygments t)
      (spell-checking
