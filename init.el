@@ -212,6 +212,9 @@
   ;; Turn off minor mode lines
   (spacemacs/toggle-mode-line-minor-modes-off)
 
+  ;; Turn on camel case motion
+  (spacemacs/toggle-camel-case-motion-globally-on)
+
   ;; Add Flow support to Flycheck if enabled
   (when myspacemacs--use-flowtype
     (use-package flycheck-flow)
