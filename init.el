@@ -124,6 +124,7 @@
    frame-title-format "%b"
    frame-resize-pixelwise t
    magit-push-always-verify nil
+   magit-visit-ref-behavior '(create-branch checkout-branch)
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column)
