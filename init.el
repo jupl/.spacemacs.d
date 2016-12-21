@@ -12,7 +12,9 @@
                                        eshell-mode
                                        shell-mode
                                        term-mode)
- myspacemacs--fixed-font "DejaVu Sans Mono"
+ myspacemacs--fixed-font (if (fboundp 'mac-auto-operator-composition-mode)
+                             "Fira Code"
+                           "DejaVu Sans Mono")
  myspacemacs--font-size 12
  myspacemacs--gui (display-graphic-p)
  myspacemacs--max-column 79
@@ -21,7 +23,9 @@
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
  myspacemacs--use-flowtype nil
- myspacemacs--variable-font "DejaVu Sans")
+ myspacemacs--variable-font (if (fboundp 'mac-auto-operator-composition-mode)
+                                "Fira Sans"
+                              "DejaVu Sans"))
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
