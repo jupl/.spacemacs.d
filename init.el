@@ -29,7 +29,6 @@
 
 ;; Load additional libs
 (load (concat myspacemacs--path "hooks.el"))
-(load (concat myspacemacs--path "layers.el"))
 (load (concat myspacemacs--path "private.el"))
 
 ;; Set up hooks
