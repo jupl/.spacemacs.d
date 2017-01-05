@@ -190,16 +190,13 @@
   (add-to-list 'auto-mode-alist '("\\.tag$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.zsh$" . sh-mode))
   (add-to-list 'auto-mode-alist '("\\.npmignore$" . gitignore-mode))
-  (add-to-list 'auto-mode-alist '("/\\editorconfig.symlink$" . conf-unix-mode))
-  (add-to-list 'auto-mode-alist '("/\\gitignore.symlink$" . gitignore-mode))
-  (add-to-list 'auto-mode-alist '("/\\ideavimrc.symlink$" . vimrc-mode))
-  (add-to-list 'auto-mode-alist '("/\\vimrc.symlink$" . vimrc-mode))
-  (auto-mode-with-symlink "babelrc" 'json-mode)
-  (auto-mode-with-symlink "bowerrc" 'json-mode)
-  (auto-mode-with-symlink "eslintrc" 'json-mode)
-  (auto-mode-with-symlink "jsbeautifyrc" 'json-mode)
-  (auto-mode-with-symlink "jshintrc" 'json-mode)
-  (auto-mode-with-symlink "tern-project" 'json-mode)
+  (add-to-list 'auto-mode-alist '("/\\.amethyst$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.babelrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.bowerrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.eslintrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.jsbeautifyrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.jshintrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.tern-project$" . json-mode))
 
   ;; Additional keybinds
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
@@ -293,8 +290,3 @@
                           list
                         (cons 'fixed-pitch list))))
     (set-face-attribute face nil :inherit new-inherit)))
-
-(defun auto-mode-with-symlink (file mode)
-  "Associate FILE (and .symlink) with MODE to auto-mode-alist."
-  (add-to-list 'auto-mode-alist `(,(concat "/\\." file "$") . ,mode))
-  (add-to-list 'auto-mode-alist `(,(concat "/" file ".symlink$") . ,mode)))
