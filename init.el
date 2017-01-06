@@ -81,7 +81,9 @@
       spell-checking-enable-by-default nil)
      (version-control
       :variables
-      version-control-diff-tool (if myspacemacs--gui 'diff-hl 'git-gutter)
+      version-control-diff-tool (cond (myspacemacs--gui 'diff-hl)
+                                      (myspacemacs--osx 'git-gutter)
+                                      (t nil))
       version-control-diff-side 'left))
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-excluded-packages '(vi-tilde-fringe)))
