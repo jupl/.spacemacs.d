@@ -223,6 +223,10 @@
     (use-package flycheck-flow)
     (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
+  ;; Turn off mouse in emacs-mac
+  (when (fboundp 'mac-mouse-wheel-mode)
+    (mac-mouse-wheel-mode -1))
+
   ;; Add a space between line numbers and content in non-gui mode
   (unless myspacemacs--gui
     (when (stringp linum-format)
