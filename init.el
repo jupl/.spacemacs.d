@@ -248,6 +248,7 @@
   (when myspacemacs--gui
     (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
     (when (member "all-the-icons" (font-family-list))
+      (use-package doom-themes)
       (use-package doom-neotree)))
 
   ;; Clear variable set earlier
