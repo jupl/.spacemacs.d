@@ -52,6 +52,7 @@
      html
      javascript
      markdown
+     mouse
      osx
      react
      restclient
@@ -218,14 +219,13 @@
   ;; Turn on camel case motion
   (spacemacs/toggle-camel-case-motion-globally-on)
 
+  ;; Turn off mouse
+  (spacemacs/toggle-ignore-mouse-on)
+
   ;; Add Flow support to Flycheck if enabled
   (when myspacemacs--use-flowtype
     (use-package flycheck-flow)
     (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
-
-  ;; Turn off mouse in emacs-mac
-  (when (fboundp 'mac-mouse-wheel-mode)
-    (mac-mouse-wheel-mode -1))
 
   ;; Add a space between line numbers and content in non-gui mode
   (unless myspacemacs--gui
