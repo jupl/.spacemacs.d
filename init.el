@@ -132,6 +132,7 @@
    magit-push-always-verify nil
    magit-visit-ref-behavior '(create-branch checkout-branch)
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
+   projectile-use-git-grep t
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column)
 
