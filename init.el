@@ -220,7 +220,7 @@
   (spacemacs/toggle-camel-case-motion-globally-on)
 
   ;; Turn off mouse
-  (spacemacs/toggle-ignore-mouse-on)
+  (spacemacs/toggle-disable-mouse-on)
 
   ;; Add Flow support to Flycheck if enabled
   (when myspacemacs--use-flowtype
