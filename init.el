@@ -286,7 +286,7 @@
 
 (defun myspacemacs//text-mode ()
   "Configure text mode."
-  (if (member major-mode '(nxml-mode yaml-mode))
+  (if (member major-mode '(conf-mode conf-unix-mode nxml-mode yaml-mode))
       (myspacemacs//prog-mode)
     (spacemacs/toggle-truncate-lines-off)
     (toggle-word-wrap t)
