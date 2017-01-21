@@ -211,7 +211,10 @@
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
   (define-key global-map (kbd "C-h h") nil)
   (define-key global-map (kbd "C-q") nil)
-  (evil-leader/set-key ";" 'evilnc-comment-or-uncomment-lines)
+  (evil-leader/set-key
+    ";" 'evilnc-comment-or-uncomment-lines
+    "qq" nil
+    "qQ" nil)
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
