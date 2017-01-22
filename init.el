@@ -77,6 +77,10 @@
      (git
       :variables
       git-magit-status-fullscreen t)
+     (mu4e
+      :variables
+      mu4e-enable-mode-line t
+      mu4e-enable-notifications t)
      (org-plus
       :variables
       org-plus-html-pygments-style "xcode"
@@ -136,6 +140,10 @@
    frame-resize-pixelwise t
    magit-push-always-verify nil
    magit-visit-ref-behavior '(create-branch checkout-branch)
+   mu4e-context-policy 'pick-first
+   mu4e-compose-context-policy 'ask-if-none
+   mu4e-maildir "~/.mail"
+   mu4e-view-show-images t
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    projectile-use-git-grep t
    vc-follow-symlinks t
@@ -191,6 +199,7 @@
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
+  (add-hook 'mu4e-compose-mode-hook 'org-mu4e-compose-org-mode)
   (remove-hook 'prog-mode-hook 'linum-mode)
   (remove-hook 'text-mode-hook 'linum-mode)
 
@@ -206,6 +215,7 @@
   (add-to-list 'auto-mode-alist '("/\\.eslintrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("/\\.jsbeautifyrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("/\\.jshintrc$" . json-mode))
+  (add-to-list 'auto-mode-alist '("/\\.mbsyncrc$" . conf-mode))
   (add-to-list 'auto-mode-alist '("/\\.tern-project$" . json-mode))
   (add-to-list 'auto-mode-alist '("/Brewfile$" . ruby-mode))
 
