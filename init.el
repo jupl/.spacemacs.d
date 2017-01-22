@@ -19,7 +19,7 @@
  myspacemacs--gui (display-graphic-p)
  myspacemacs--max-column 79
  myspacemacs--neotree-size 10
- myspacemacs--osx (eq system-type 'darwin)
+ myspacemacs--macos (eq system-type 'darwin)
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
  myspacemacs--use-flowtype nil
@@ -83,7 +83,7 @@
      (version-control
       :variables
       version-control-diff-tool (cond (myspacemacs--gui 'diff-hl)
-                                      (myspacemacs--osx 'git-gutter)
+                                      (myspacemacs--macos 'git-gutter)
                                       (t nil))
       version-control-diff-side 'left))
    dotspacemacs-distribution 'spacemacs
@@ -104,7 +104,7 @@
    dotspacemacs-leader-key "SPC"
    dotspacemacs-line-numbers 'relative
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
-   dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--osx)
+   dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--macos)
    dotspacemacs-scratch-mode 'fundamental-mode
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
