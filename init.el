@@ -38,6 +38,11 @@
 (add-hook 'myspacemacs--user-config-hook 'myspacemacs//user-config)
 (add-hook 'myspacemacs--after-hook 'myspacemacs//after)
 
+;; Add Homebrew packages to the load-path
+(when myspacemacs--macos
+  (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
+    (normal-top-level-add-subdirs-to-load-path)))
+
 (defun myspacemacs//layers ()
   "Configure layers/packages for Spacemacs."
   (setq-default
