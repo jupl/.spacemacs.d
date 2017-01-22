@@ -213,8 +213,12 @@
   (define-key global-map (kbd "C-q") nil)
   (evil-leader/set-key
     ";" 'evilnc-comment-or-uncomment-lines
+    "qd" nil
+    "qD" nil
     "qq" nil
-    "qQ" nil)
+    "qQ" nil
+    "qr" nil
+    "qR" nil)
 
   ;; Turn off company mode for some text related editing
   (spacemacs|disable-company markdown-mode)
