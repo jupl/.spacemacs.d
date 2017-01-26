@@ -22,6 +22,9 @@
  myspacemacs--macos (eq system-type 'darwin)
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
+ myspacemacs--repositories-path (if myspacemacs--macos
+                                    "~/Repositories"
+                                  "~/repositories")
  myspacemacs--use-flowtype nil
  myspacemacs--variable-font (if (fboundp 'mac-auto-operator-composition-mode)
                                 "Fira Sans"
@@ -228,6 +231,7 @@
   (define-key global-map (kbd "C-q") nil)
   (evil-leader/set-key
     ";" 'evilnc-comment-or-uncomment-lines
+    "gc" 'myspacemacs//magit-clone
     "qd" nil
     "qD" nil
     "qq" nil
@@ -322,3 +326,9 @@
                           list
                         (cons 'fixed-pitch list))))
     (set-face-attribute face nil :inherit new-inherit)))
+
+(defun myspacemacs//magit-clone ()
+  "Wrap magit-clone call to use a default directory."
+  (interactive)
+  (let ((default-directory (expand-file-name myspacemacs--repositories-path)))
+    (call-interactively 'magit-clone)))
