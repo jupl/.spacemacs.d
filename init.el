@@ -145,7 +145,7 @@
    magit-visit-ref-behavior '(create-branch checkout-branch)
    mu4e-context-policy 'pick-first
    mu4e-compose-context-policy 'ask-if-none
-   mu4e-maildir "~/.mail"
+   mu4e-maildir (expand-file-name "~/.mail")
    mu4e-view-show-images t
    neo-theme (if myspacemacs--gui 'arrow 'ascii)
    projectile-use-git-grep t
