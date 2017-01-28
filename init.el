@@ -234,8 +234,6 @@
     "gc" 'myspacemacs//magit-clone
     "qd" nil
     "qD" nil
-    "qq" nil
-    "qQ" nil
     "qr" nil
     "qR" nil)
 
