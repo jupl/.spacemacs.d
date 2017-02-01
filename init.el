@@ -49,7 +49,9 @@
 (defun myspacemacs//layers ()
   "Configure layers/packages for Spacemacs."
   (setq-default
-   dotspacemacs-additional-packages '(doom-themes madhad2r-theme)
+   dotspacemacs-additional-packages '(doom-themes
+                                      madhad2r-theme
+                                      spacemacs-theme)
    dotspacemacs-configuration-layers
    '(clojure
      colors
@@ -121,8 +123,11 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
-   dotspacemacs-themes '(madhat2r spacemacs-dark spacemacs-light)
-   dotspacemacs-visual-line-move-text t))
+   dotspacemacs-visual-line-move-text t)
+  (when myspacemacs--gui
+    (setq-default dotspacemacs-themes '(madhat2r
+                                        spacemacs-dark
+                                        spacemacs-light))))
 
 (defun myspacemacs//user-init ()
   "Configure packages before they are loaded."
