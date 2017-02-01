@@ -49,7 +49,7 @@
 (defun myspacemacs//layers ()
   "Configure layers/packages for Spacemacs."
   (setq-default
-   dotspacemacs-additional-packages '(doom-themes)
+   dotspacemacs-additional-packages '(doom-themes madhad2r-theme)
    dotspacemacs-configuration-layers
    '(clojure
      colors
@@ -121,6 +121,7 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
+   dotspacemacs-themes '(madhat2r spacemacs-dark spacemacs-light)
    dotspacemacs-visual-line-move-text t))
 
 (defun myspacemacs//user-init ()
@@ -141,6 +142,7 @@
    js2-mode-show-strict-warnings nil
    frame-title-format "%b"
    frame-resize-pixelwise t
+   madhat2r-theme-org-height t
    magit-push-always-verify nil
    magit-visit-ref-behavior '(create-branch checkout-branch)
    mu4e-context-policy 'pick-first
