@@ -49,9 +49,7 @@
 (defun myspacemacs//layers ()
   "Configure layers/packages for Spacemacs."
   (setq-default
-   dotspacemacs-additional-packages '(doom-themes
-                                      madhat2r-theme
-                                      spacemacs-theme)
+   dotspacemacs-additional-packages '(doom-themes madhat2r-theme)
    dotspacemacs-configuration-layers
    '(clojure
      colors
