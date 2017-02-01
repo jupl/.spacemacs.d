@@ -50,7 +50,7 @@
   "Configure layers/packages for Spacemacs."
   (setq-default
    dotspacemacs-additional-packages '(doom-themes
-                                      madhad2r-theme
+                                      madhat2r-theme
                                       spacemacs-theme)
    dotspacemacs-configuration-layers
    '(clojure
