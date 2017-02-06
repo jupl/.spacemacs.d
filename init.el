@@ -114,7 +114,7 @@
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-leader-key "SPC"
-   dotspacemacs-line-numbers 'relative
+   dotspacemacs-line-numbers '(:relative t)
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--macos)
    dotspacemacs-scratch-mode 'fundamental-mode
