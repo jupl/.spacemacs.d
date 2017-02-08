@@ -114,7 +114,13 @@
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-leader-key "SPC"
-   dotspacemacs-line-numbers '(:relative t)
+   dotspacemacs-line-numbers '(:enabled-for-modes
+                               conf-mode
+                               conf-unix-mode
+                               nxml-mode
+                               prog-mode
+                               yaml-mode
+                               :relative t)
    dotspacemacs-mode-line-unicode-symbols myspacemacs--gui
    dotspacemacs-persistent-server (and myspacemacs--gui myspacemacs--macos)
    dotspacemacs-scratch-mode 'fundamental-mode
@@ -310,7 +316,6 @@
 (defun myspacemacs//prog-mode ()
   "Configure program mode."
   (spacemacs/toggle-truncate-lines-on)
-  (spacemacs/toggle-line-numbers-on)
   (rainbow-mode t))
 
 (defun myspacemacs//text-mode ()
