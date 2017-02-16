@@ -7,4 +7,4 @@
             :mode global-disable-mouse-mode
             :documentation "Disables mouse input."
             :evil-leader "tM")
-    :diminish global-disable-mouse-mode))
+    :config (spacemacs|hide-lighter global-disable-mouse-mode)))

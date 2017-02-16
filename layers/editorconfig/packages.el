@@ -4,4 +4,4 @@
   "Initialize EditorConfig."
   (use-package editorconfig
     :init (editorconfig-mode t)
-    :diminish editorconfig-mode))
+    :config (spacemacs|hide-lighter editorconfig-mode)))
