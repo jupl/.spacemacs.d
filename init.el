@@ -320,11 +320,13 @@
 
 (defun myspacemacs//text-mode ()
   "Configure text mode."
-  (if (member major-mode '(conf-mode conf-unix-mode nxml-mode yaml-mode))
-      (myspacemacs//prog-mode)
+  (cond
+   ((member major-mode '(conf-mode conf-unix-mode nxml-mode yaml-mode))
+    (myspacemacs//prog-mode))
+   ((not (member 'git-commit-mode minor-mode-list))
     (spacemacs/toggle-truncate-lines-off)
     (toggle-word-wrap t)
-    (variable-pitch-mode t)))
+    (variable-pitch-mode t))))
 
 (defun add-fixed-pitch-to-face (face)
   "Enforce fixed pitch to a FACE."
