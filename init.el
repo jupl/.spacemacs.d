@@ -80,6 +80,9 @@
      (git
       :variables
       git-magit-status-fullscreen t)
+     (go
+      :variables
+      gofmt-command "goimports")
      (mu4e
       :variables
       mu4e-enable-mode-line t
