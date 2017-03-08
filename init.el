@@ -212,6 +212,7 @@
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'css-mode-hook 'myspacemacs//css-mode)
   (add-hook 'css-mode-hook 'myspacemacs//prog-mode)
+  (add-hook 'git-commit-mode-hook 'myspacemacs//git-commit-mode)
   (add-hook 'js2-mode-hook 'myspacemacs//js-mode)
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
@@ -323,13 +324,15 @@
 
 (defun myspacemacs//text-mode ()
   "Configure text mode."
-  (cond
-   ((member major-mode '(conf-mode conf-unix-mode nxml-mode yaml-mode))
-    (myspacemacs//prog-mode))
-   ((not (member 'git-commit-mode minor-mode-list))
-    (spacemacs/toggle-truncate-lines-off)
-    (toggle-word-wrap t)
-    (variable-pitch-mode t))))
+  (if (member major-mode '(conf-mode conf-unix-mode nxml-mode yaml-mode))
+      (myspacemacs//prog-mode)
+      (spacemacs/toggle-truncate-lines-off)
+      (toggle-word-wrap t)
+      (variable-pitch-mode t)))
+
+(defun myspacemacs//git-commit-mode ()
+  "Configure git commit mode."
+  (variable-pitch-mode -1))
 
 (defun add-fixed-pitch-to-face (face)
   "Enforce fixed pitch to a FACE."
