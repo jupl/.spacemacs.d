@@ -130,11 +130,7 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
-   dotspacemacs-visual-line-move-text t)
-  (when myspacemacs--gui
-    (setq-default dotspacemacs-themes '(madhat2r
-                                        spacemacs-dark
-                                        spacemacs-light))))
+   dotspacemacs-visual-line-move-text t))
 
 (defun myspacemacs//user-init ()
   "Configure packages before they are loaded."
