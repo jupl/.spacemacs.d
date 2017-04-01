@@ -174,7 +174,7 @@
    neo-mode-line-type 'none
    neo-smart-open t
    neo-vc-integration '(face)
-   powerline-default-separator (if myspacemacs--gui 'arrow-fade nil))
+   powerline-default-separator (if myspacemacs--gui 'bar nil))
 
   ;; Override the default variable pitch font
   (set-face-attribute 'variable-pitch nil :family myspacemacs--variable-font)
