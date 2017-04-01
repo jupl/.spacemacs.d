@@ -215,6 +215,7 @@
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
+  (add-hook 'typescript-mode-hook 'myspacemacs//js-mode)
   (add-hook 'mu4e-compose-mode-hook 'org-mu4e-compose-org-mode)
   (remove-hook 'prog-mode-hook 'linum-mode)
   (remove-hook 'text-mode-hook 'linum-mode)
@@ -305,7 +306,9 @@
 (defun myspacemacs//js-mode ()
   "Configure js mode."
   (setq js--prettify-symbols-alist nil)
-  (setq-local prettify-symbols-alist '(("function" . ?ƒ)
+  (setq-local prettify-symbols-alist '(("const" . ?C)
+                                       ("let" . ?L)
+                                       ("function" . ?ƒ)
                                        ("return" . ?▪)
                                        ("yield" . ?γ)))
   (prettify-symbols-mode t))
