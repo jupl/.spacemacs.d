@@ -133,6 +133,7 @@
   (setq-default
    all-the-icons-scale-factor 1
    all-the-icons-default-adjust 0
+   create-lockfiles nil
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
    doom-enable-brighter-comments t
