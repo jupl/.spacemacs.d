@@ -110,6 +110,7 @@
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-enable-lazy-installation nil
+   dotspacemacs-enable-paste-transient-state t
    dotspacemacs-ex-command-key ";"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-leader-key "SPC"
