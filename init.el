@@ -13,9 +13,11 @@
                                        shell-mode
                                        term-mode)
  myspacemacs--fixed-font "Fira Code"
+ myspacemacs--font-size nil
  myspacemacs--gui (display-graphic-p)
  myspacemacs--max-column 79
  myspacemacs--macos (eq system-type 'darwin)
+ myspacemacs--neotree-size 0.8
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
  myspacemacs--repositories-path (if myspacemacs--macos
@@ -105,6 +107,7 @@
   (setq-default
    dotspacemacs-auto-resume-layouts t
    dotspacemacs-default-font `(,myspacemacs--fixed-font
+                               :size ,myspacemacs--font-size
                                :powerline-scale ,myspacemacs--powerline-scale)
    dotspacemacs-editing-style 'vim
    dotspacemacs-emacs-leader-key "M-m"
@@ -308,7 +311,7 @@
 
 (defun myspacemacs//neotree-mode ()
   "Apply consistent height to the Neotree buffer."
-  (defface neotree-face `((nil :height 0.8)) nil)
+  (defface neotree-face `((nil :height ,myspacemacs--neotree-size)) nil)
   (buffer-face-set 'neotree-face))
 
 (defun myspacemacs//prog-mode ()
