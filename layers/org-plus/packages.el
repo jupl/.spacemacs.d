@@ -6,6 +6,7 @@
 ;; 3. Install Pygments
 ;; 4. Install the following TeX packages
 ;;   - beamertheme-metropolis
+;;   - framed
 ;;   - minted
 ;;   - wrapfig
 ;;   - capt-of
@@ -27,6 +28,7 @@
        org-export-allow-bind-keywords t
        org-src-preserve-indentation t
        org-startup-folded 'showall)
+      (require 'ox-beamer)
       (add-to-list 'org-agenda-files "~/org")))
   (with-eval-after-load 'ox-html
     (setq-default
