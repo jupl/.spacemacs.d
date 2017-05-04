@@ -26,6 +26,7 @@
        org-export-with-section-numbers nil
        org-export-with-toc nil
        org-export-allow-bind-keywords t
+       org-startup-with-inline-images nil
        org-src-preserve-indentation t
        org-startup-folded 'showall)
       (require 'ox-beamer)

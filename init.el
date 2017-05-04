@@ -244,7 +244,7 @@
   (define-key evil-visual-state-map (kbd "k") 'evil-previous-visual-line)
   (define-key global-map (kbd "C-h h") nil)
   (define-key global-map (kbd "C-q") nil)
-  (evil-leader/set-key
+  (spacemacs/set-leader-keys
     ";" 'evilnc-comment-or-uncomment-lines
     "gc" 'myspacemacs//magit-clone
     "qd" nil
