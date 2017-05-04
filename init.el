@@ -85,6 +85,9 @@
       :variables
       mu4e-enable-mode-line t
       mu4e-enable-notifications t)
+     (olivetti
+      :variables
+      olivetti-hide-mode-line t)
      (org-plus
       :variables
       org-plus-html-pygments-style "xcode"
