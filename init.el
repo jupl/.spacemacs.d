@@ -108,7 +108,6 @@
 (defun myspacemacs//init ()
   "Configure Spacemacs."
   (setq-default
-   dotspacemacs-auto-resume-layouts t
    dotspacemacs-default-font `(,myspacemacs--fixed-font
                                :size ,myspacemacs--font-size
                                :powerline-scale ,myspacemacs--powerline-scale)
