@@ -187,12 +187,6 @@
 
   ;; Use fixed-pitch font in certain text mode faces
   (set-face-attribute 'fixed-pitch nil :family myspacemacs--fixed-font)
-  (with-eval-after-load 'org
-    (mapc 'add-fixed-pitch-to-face '(org-code
-                                     org-block
-                                     org-formula
-                                     org-table
-                                     org-verbatim)))
   (with-eval-after-load 'markdown-mode
     (mapc 'add-fixed-pitch-to-face '(markdown-pre-face
                                      markdown-inline-code-face
@@ -262,11 +256,6 @@
 
   ;; Turn off mouse
   (spacemacs/toggle-disable-mouse-on)
-
-  ;; Add Flow support to Flycheck if enabled
-  (when myspacemacs--use-flowtype
-    (use-package flycheck-flow)
-    (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
   ;; Add a space between line numbers and content in non-gui mode
   (unless myspacemacs--gui

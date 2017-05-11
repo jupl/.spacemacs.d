@@ -29,7 +29,12 @@
        org-startup-with-inline-images nil
        org-src-preserve-indentation t
        org-startup-folded 'showall)
-      (require 'ox-beamer)
+      (use-package ox-beamer)
+      (mapc 'org-plus/add-fixed-pitch-to-face '(org-code
+                                                org-block
+                                                org-formula
+                                                org-table
+                                                org-verbatim))
       (add-to-list 'org-agenda-files "~/org")))
   (with-eval-after-load 'ox-html
     (setq-default
