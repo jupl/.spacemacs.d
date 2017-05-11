@@ -23,7 +23,6 @@
  myspacemacs--repositories-path (if myspacemacs--macos
                                     "~/Repositories"
                                   "~/repositories")
- myspacemacs--use-flowtype nil
  myspacemacs--variable-font (if (fboundp 'mac-auto-operator-composition-mode)
                                 "Fira Sans"
                               "DejaVu Sans"))
