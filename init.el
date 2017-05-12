@@ -136,8 +136,6 @@
 (defun myspacemacs//user-init ()
   "Configure packages before they are loaded."
   (setq-default
-   all-the-icons-scale-factor 1
-   all-the-icons-default-adjust 0
    create-lockfiles nil
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
@@ -156,7 +154,6 @@
    mu4e-compose-context-policy 'ask-if-none
    mu4e-maildir (expand-file-name "~/.mail")
    mu4e-view-show-images t
-   neo-theme (if myspacemacs--gui 'arrow 'ascii)
    projectile-use-git-grep t
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column)
@@ -172,10 +169,6 @@
   (setq-default
    grep-highlight-matches t
    fill-column myspacemacs--max-column
-   neo-banner-message nil
-   neo-mode-line-type 'none
-   neo-smart-open t
-   neo-vc-integration '(face)
    powerline-default-separator (if myspacemacs--gui 'bar nil))
 
   ;; Override the default variable pitch font
@@ -249,9 +242,6 @@
 
   ;; Turn on camel case motion
   (spacemacs/toggle-camel-case-motion-globally-on)
-
-  ;; Turn off mouse
-  (spacemacs/toggle-disable-mouse-on)
 
   ;; Add a space between line numbers and content in non-gui mode
   (unless myspacemacs--gui

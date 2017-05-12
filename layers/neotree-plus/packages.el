@@ -7,9 +7,12 @@
   (use-package doom-themes
     :defer t
     :init
-    (when (and (display-graphic-p)
-               (member "all-the-icons" (font-family-list)))
+    (when (display-graphic-p)
       (spacemacs|use-package-add-hook neotree
+        :pre-config
+        (setq-default
+         neo-banner-message nil
+         neo-mode-line-type 'none)
         :post-config
         (progn
           (add-hook 'neotree-mode-hook 'neotree-plus/neotree-mode)
