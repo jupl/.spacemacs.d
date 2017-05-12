@@ -52,6 +52,7 @@
      command-log
      editorconfig
      emacs-lisp
+     email
      helm
      html
      javascript
