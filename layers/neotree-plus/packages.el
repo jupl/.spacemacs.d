@@ -7,16 +7,15 @@
   (use-package doom-themes
     :defer t
     :init
-    (when (display-graphic-p)
-      (spacemacs|use-package-add-hook neotree
-        :pre-config
-        (setq-default
-         neo-banner-message nil
-         neo-mode-line-type 'none)
-        :post-config
-        (progn
-          (add-hook 'neotree-mode-hook 'neotree-plus/neotree-mode)
-          (doom-themes-neotree-config))))))
+    (spacemacs|use-package-add-hook neotree
+      :pre-config
+      (setq-default
+       neo-banner-message nil
+       neo-mode-line-type 'none)
+      :post-config
+      (when (display-graphic-p)
+        (add-hook 'neotree-mode-hook 'neotree-plus/neotree-mode)
+        (doom-themes-neotree-config)))))
 
 (defun neotree-plus/post-init-neotree ()
   "Do nothing. Work is done in init-doom-themes.")
