@@ -11,7 +11,8 @@
       :pre-config
       (setq-default
        neo-banner-message nil
-       neo-mode-line-type 'none)
+       neo-mode-line-type 'none
+       neo-show-hidden-files nil)
       :post-config
       (when (display-graphic-p)
         (add-hook 'neotree-mode-hook 'neotree-plus/neotree-mode)
