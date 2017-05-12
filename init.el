@@ -81,10 +81,6 @@
      (go
       :variables
       gofmt-command "goimports")
-     (mu4e
-      :variables
-      mu4e-enable-mode-line t
-      mu4e-enable-notifications t)
      (olivetti
       :variables
       olivetti-hide-mode-line t)
@@ -151,10 +147,6 @@
    madhat2r-theme-org-height t
    magit-push-always-verify nil
    magit-visit-ref-behavior '(create-branch checkout-branch)
-   mu4e-context-policy 'pick-first
-   mu4e-compose-context-policy 'ask-if-none
-   mu4e-maildir (expand-file-name "~/.mail")
-   mu4e-view-show-images t
    projectile-use-git-grep t
    vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column)
@@ -200,7 +192,6 @@
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
-  (add-hook 'mu4e-compose-mode-hook 'org-mu4e-compose-org-mode)
   (remove-hook 'prog-mode-hook 'linum-mode)
   (remove-hook 'text-mode-hook 'linum-mode)
 
