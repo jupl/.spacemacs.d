@@ -131,6 +131,7 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
+   dotspacemacs-themes '(doom-one spacemacs-light)
    dotspacemacs-visual-line-move-text t))
 
 (defun myspacemacs//user-init ()
