@@ -17,7 +17,6 @@
  myspacemacs--gui (display-graphic-p)
  myspacemacs--max-column 79
  myspacemacs--macos (eq system-type 'darwin)
- myspacemacs--neotree-size 0.8
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
  myspacemacs--repositories-path (if myspacemacs--macos
@@ -46,7 +45,7 @@
 (defun myspacemacs//layers ()
   "Configure layers/packages for Spacemacs."
   (setq-default
-   dotspacemacs-additional-packages '(doom-themes madhat2r-theme)
+   dotspacemacs-additional-packages '(madhat2r-theme)
    dotspacemacs-configuration-layers
    '(clojure
      colors
@@ -58,6 +57,7 @@
      javascript
      markdown
      mouse
+     neotree-plus
      osx
      react
      restclient
@@ -141,9 +141,6 @@
    create-lockfiles nil
    display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
-   doom-enable-brighter-comments t
-   doom-neotree-enable-file-icons t
-   doom-neotree-enable-variable-pitch t
    evil-echo-state nil
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
@@ -272,14 +269,6 @@
         (centered-cursor-mode t))))
   (myspacemacs-centered-cursor-mode t)
 
-  ;; GUI specifics
-  ;; For icons see https://github.com/domtronn/all-the-icons.el
-  (when myspacemacs--gui
-    (add-hook 'neotree-mode-hook 'myspacemacs//neotree-mode)
-    (when (member "all-the-icons" (font-family-list))
-      (use-package doom-themes)
-      (use-package doom-neotree)))
-
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
 
@@ -298,11 +287,6 @@
                                        ("return" . ?▪)
                                        ("yield" . ?γ)))
   (prettify-symbols-mode t))
-
-(defun myspacemacs//neotree-mode ()
-  "Apply consistent height to the Neotree buffer."
-  (defface neotree-face `((nil :height ,myspacemacs--neotree-size)) nil)
-  (buffer-face-set 'neotree-face))
 
 (defun myspacemacs//prog-mode ()
   "Configure program mode."
