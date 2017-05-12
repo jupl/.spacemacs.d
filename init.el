@@ -65,6 +65,7 @@
      shell-scripts
      syntax-checking
      typescript
+     vim-empty-lines
      vimscript
      yaml
      (auto-completion
@@ -101,8 +102,7 @@
                                       (myspacemacs--macos 'git-gutter)
                                       (t nil))
       version-control-diff-side 'left))
-   dotspacemacs-distribution 'spacemacs
-   dotspacemacs-excluded-packages '(vi-tilde-fringe)))
+   dotspacemacs-distribution 'spacemacs))
 
 (defun myspacemacs//init ()
   "Configure Spacemacs."
