@@ -1,8 +1,8 @@
-(setq neotree-plus-packages '(doom-themes neotree))
+(setq doom-packages '(doom-themes neotree))
 
 ;; For icons see https://github.com/domtronn/all-the-icons.el
 
-(defun neotree-plus/init-doom-themes ()
+(defun doom/init-doom-themes ()
   "Wiat for doom to load to set up neotree."
   (use-package doom-themes
     :defer t
@@ -15,8 +15,8 @@
        neo-show-hidden-files nil)
       :post-config
       (when (display-graphic-p)
-        (add-hook 'neotree-mode-hook 'neotree-plus/neotree-mode)
+        (add-hook 'neotree-mode-hook 'doom/neotree-mode)
         (doom-themes-neotree-config)))))
 
-(defun neotree-plus/post-init-neotree ()
+(defun doom/post-init-neotree ()
   "Do nothing. Work is done in init-doom-themes.")

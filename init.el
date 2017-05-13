@@ -19,9 +19,6 @@
  myspacemacs--macos (eq system-type 'darwin)
  myspacemacs--path (file-name-directory load-file-name)
  myspacemacs--powerline-scale 1.4
- myspacemacs--repositories-path (if myspacemacs--macos
-                                    "~/Repositories"
-                                  "~/repositories")
  myspacemacs--variable-font (if (fboundp 'mac-auto-operator-composition-mode)
                                 "Fira Sans"
                               "DejaVu Sans"))
@@ -50,22 +47,21 @@
    '(clojure
      colors
      command-log
+     doom
      editorconfig
      emacs-lisp
-     email
+     git-plus
      helm
      html
-     javascript
-     markdown
+     javascript-plus
+     markdown-plus
      mouse
-     neotree-plus
+     olivetti
      osx
-     react
      restclient
      shell
      shell-scripts
      syntax-checking
-     typescript
      vim-empty-lines
      vimscript
      yaml
@@ -76,15 +72,9 @@
       auto-completion-enable-sort-by-usage t
       auto-completion-return-key-behavior nil
       auto-completion-tab-key-behavior 'complete)
-     (git
-      :variables
-      git-magit-status-fullscreen t)
      (go
       :variables
       gofmt-command "goimports")
-     (olivetti
-      :variables
-      olivetti-hide-mode-line t)
      (org-plus
       :variables
       org-plus-html-pygments-style "xcode"
@@ -92,13 +82,7 @@
       org-plus-use-pygments t)
      (spell-checking
       :variables
-      spell-checking-enable-by-default nil)
-     (version-control
-      :variables
-      version-control-diff-tool (cond (myspacemacs--gui 'diff-hl)
-                                      (myspacemacs--macos 'git-gutter)
-                                      (t nil))
-      version-control-diff-side 'left))
+      spell-checking-enable-by-default nil))
    dotspacemacs-distribution 'spacemacs))
 
 (defun myspacemacs//init ()
@@ -141,15 +125,9 @@
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
    helm-mode-handle-completion-in-region nil
-   js2-mode-show-parse-errors nil
-   js2-mode-show-strict-warnings nil
    frame-title-format "%b"
    frame-resize-pixelwise t
    madhat2r-theme-org-height t
-   magit-push-always-verify nil
-   magit-visit-ref-behavior '(create-branch checkout-branch)
-   projectile-use-git-grep t
-   vc-follow-symlinks t
    whitespace-line-column myspacemacs--max-column)
 
   ;; Emacs 26
@@ -170,11 +148,6 @@
 
   ;; Use fixed-pitch font in certain text mode faces
   (set-face-attribute 'fixed-pitch nil :family myspacemacs--fixed-font)
-  (with-eval-after-load 'markdown-mode
-    (mapc 'add-fixed-pitch-to-face '(markdown-pre-face
-                                     markdown-inline-code-face
-                                     markdown-comment-face
-                                     markdown-language-keyword-face)))
 
   ;; Set up eshell aliases
   ;; TODO Try to open buffers for emacs alias in a Spacemacs friendly way
@@ -188,10 +161,7 @@
   (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
   (add-hook 'css-mode-hook 'myspacemacs//css-mode)
   (add-hook 'css-mode-hook 'myspacemacs//prog-mode)
-  (add-hook 'git-commit-mode-hook 'myspacemacs//git-commit-mode)
-  (add-hook 'js2-mode-hook 'myspacemacs//js-mode)
   (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
-  (add-hook 'react-mode-hook 'myspacemacs//js-mode)
   (add-hook 'text-mode-hook 'myspacemacs//text-mode)
   (remove-hook 'prog-mode-hook 'linum-mode)
   (remove-hook 'text-mode-hook 'linum-mode)
@@ -201,15 +171,8 @@
   (add-to-list 'auto-mode-alist '("\\.tag$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.zsh$" . sh-mode))
   (add-to-list 'auto-mode-alist '("\\.npmignore$" . gitignore-mode))
-  (add-to-list 'auto-mode-alist '("/\\.amethyst$" . json-mode))
-  (add-to-list 'auto-mode-alist '("/\\.babelrc$" . json-mode))
-  (add-to-list 'auto-mode-alist '("/\\.bowerrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("/\\.Brewfile$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("/\\.eslintrc$" . json-mode))
-  (add-to-list 'auto-mode-alist '("/\\.jsbeautifyrc$" . json-mode))
-  (add-to-list 'auto-mode-alist '("/\\.jshintrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("/\\.mbsyncrc$" . conf-mode))
-  (add-to-list 'auto-mode-alist '("/\\.tern-project$" . json-mode))
   (add-to-list 'auto-mode-alist '("/Brewfile$" . ruby-mode))
 
   ;; Additional keybinds
@@ -221,14 +184,10 @@
   (define-key global-map (kbd "C-q") nil)
   (spacemacs/set-leader-keys
     ";" 'evilnc-comment-or-uncomment-lines
-    "gc" 'myspacemacs//magit-clone
     "qd" nil
     "qD" nil
     "qr" nil
     "qR" nil)
-
-  ;; Turn off company mode for some text related editing
-  (spacemacs|disable-company markdown-mode)
 
   ;; Turn off minor mode lines
   (spacemacs/toggle-mode-line-minor-modes-off)
@@ -256,20 +215,11 @@
   (setenv "INSIDE_EMACS" nil))
 
 (defun myspacemacs//after ()
-  "Final configurations after everything is loaded."
-  nil)
+  "Final configurations after everything is loaded.")
 
 (defun myspacemacs//css-mode ()
   "Configure css mode."
   (smartparens-mode t))
-
-(defun myspacemacs//js-mode ()
-  "Configure js mode."
-  (setq js--prettify-symbols-alist nil)
-  (setq-local prettify-symbols-alist '(("function" . ?ƒ)
-                                       ("return" . ?▪)
-                                       ("yield" . ?γ)))
-  (prettify-symbols-mode t))
 
 (defun myspacemacs//prog-mode ()
   "Configure program mode."
@@ -287,22 +237,3 @@
       (spacemacs/toggle-truncate-lines-off)
       (toggle-word-wrap t)
       (variable-pitch-mode t)))
-
-(defun myspacemacs//git-commit-mode ()
-  "Configure git commit mode."
-  (variable-pitch-mode -1))
-
-(defun add-fixed-pitch-to-face (face)
-  "Enforce fixed pitch to a FACE."
-  (let* ((old-inherit (face-attribute face :inherit))
-         (list (if (listp old-inherit) old-inherit `(,old-inherit)))
-         (new-inherit (if (member 'fixed-pitch list)
-                          list
-                        (cons 'fixed-pitch list))))
-    (set-face-attribute face nil :inherit new-inherit)))
-
-(defun myspacemacs//magit-clone ()
-  "Wrap magit-clone call to use a default directory."
-  (interactive)
-  (let ((default-directory (expand-file-name myspacemacs--repositories-path)))
-    (call-interactively 'magit-clone)))
