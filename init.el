@@ -17,7 +17,7 @@
   (if (fboundp 'mac-auto-operator-composition-mode)
       "Fira Sans"
     "DejaVu Sans")
-  "Nonmonospace font.")
+  "Non-monospace font.")
 
 ;; Set up environment variables
 (with-eval-after-load 'exec-path-from-shell

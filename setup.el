@@ -1,11 +1,3 @@
-;; Configuration variables
-(setq-default
- myspacemacs--centered-cursor-ignore '(spacemacs-buffer-mode
-                                       eshell-mode
-                                       shell-mode
-                                       term-mode)
- )
-
 ;; Set up hooks
 (add-hook 'myspacemacs-layers-hook 'myspacemacs/layers)
 (add-hook 'myspacemacs-init-hook 'myspacemacs/init)
@@ -177,7 +169,10 @@
   (define-global-minor-mode myspacemacs-centered-cursor-mode
     centered-cursor-mode
     (lambda ()
-      (unless (member major-mode myspacemacs--centered-cursor-ignore)
+      (unless (member major-mode '(spacemacs-buffer-mode
+                                   eshell-mode
+                                   shell-mode
+                                   term-mode))
         (centered-cursor-mode t))))
   (myspacemacs-centered-cursor-mode t)
 
