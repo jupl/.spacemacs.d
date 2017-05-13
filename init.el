@@ -219,12 +219,9 @@
   "Custom frame title."
   (cond
    ((and buffer-file-truename (projectile-project-p))
-    (concat
-     "["
-     (projectile-project-name)
-     "] "
-     (file-relative-name buffer-file-truename
-                         (projectile-project-root))))
+    (concat "[" (projectile-project-name) "] " (file-relative-name
+                                                buffer-file-truename
+                                                (projectile-project-root))))
    ((projectile-project-p) (concat "[" (projectile-project-name) "]"))
    (buffer-file-truename buffer-file-truename)
    (t "Spacemacs")))
