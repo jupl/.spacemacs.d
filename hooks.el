@@ -7,7 +7,7 @@
 (defvar myspacemacs-user-config-hook nil "Hook for dotspacemacs/user-config.")
 
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration."
+  "Configuration layers declaration."
   (run-hooks 'myspacemacs-layers-hook))
 
 (defun dotspacemacs/init ()

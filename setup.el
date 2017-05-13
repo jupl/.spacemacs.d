@@ -5,53 +5,59 @@
 (add-hook 'myspacemacs-user-config-hook 'myspacemacs/user-config)
 
 (defun myspacemacs/layers ()
-  "Configure layers/packages for Spacemacs."
+  "Configuration layers declaration."
   (setq-default
    dotspacemacs-additional-packages '(madhat2r-theme)
    dotspacemacs-configuration-layers
-   '(clojure
-     colors
-     command-log
-     doom
-     editorconfig
-     emacs-lisp
-     git-plus
-     helm
-     html
-     javascript-plus
-     markdown-plus
-     mouse
-     olivetti
-     osx
-     restclient
-     shell
-     shell-scripts
-     syntax-checking
-     vim-empty-lines
-     vimscript
-     yaml
-     (auto-completion
+   '((auto-completion
       :variables
       auto-completion-enable-help-tooltip t
       auto-completion-enable-snippets-in-popup t
       auto-completion-enable-sort-by-usage t
       auto-completion-return-key-behavior nil
       auto-completion-tab-key-behavior 'complete)
+     (centered-cursor
+      :variables
+      centered-cursor-major-mode-blacklist '(spacemacs-buffer-mode
+                                             eshell-mode
+                                             shell-mode
+                                             term-mode))
+     clojure
+     colors
+     command-log
+     doom
+     editorconfig
+     emacs-lisp
+     git-plus
      (go
       :variables
       gofmt-command "goimports")
+     helm
+     html
+     javascript-plus
+     markdown-plus
+     mouse
+     olivetti
      (org-plus
       :variables
       org-plus-html-pygments-style "xcode"
       org-plus-pdf-no-tex t
       org-plus-use-pygments t)
+     osx
+     restclient
+     shell
+     shell-scripts
      (spell-checking
       :variables
-      spell-checking-enable-by-default nil))
+      spell-checking-enable-by-default nil)
+     syntax-checking
+     vim-empty-lines
+     vimscript
+     yaml)
    dotspacemacs-distribution 'spacemacs))
 
 (defun myspacemacs/init ()
-  "Configure Spacemacs."
+  "Initialization function."
   (setq-default
    dotspacemacs-default-font `(,myspacemacs-fixed-font
                                :size ,myspacemacs-font-size
@@ -83,7 +89,7 @@
    dotspacemacs-visual-line-move-text t))
 
 (defun myspacemacs/user-init ()
-  "Configure packages before they are loaded."
+  "Initialization function for user code."
   (setq-default
    create-lockfiles nil
    display-time-format "%a %m-%d %I:%M"
@@ -103,9 +109,9 @@
       'window--make-major-side-window)))
 
 (defun myspacemacs/user-config ()
-  "Configure packages after they are loaded."
+  "Configuration function for user code."
   (setq-default
-   frame-title-format '((:eval (myspacemacs//frame-title-format)))
+   frame-title-format '((:eval (myspacemacs/frame-title-format)))
    fill-column myspacemacs-max-column
    grep-highlight-matches t
    powerline-default-separator (if (display-graphic-p) 'bar nil))
@@ -123,13 +129,11 @@
     (eshell/alias "la" "ls -lAh $*"))
 
   ;; Additional hooks
-  (add-hook 'conf-mode-hook 'myspacemacs//prog-mode)
-  (add-hook 'css-mode-hook 'myspacemacs//css-mode)
-  (add-hook 'css-mode-hook 'myspacemacs//prog-mode)
-  (add-hook 'prog-mode-hook 'myspacemacs//prog-mode)
-  (add-hook 'text-mode-hook 'myspacemacs//text-mode)
-  (remove-hook 'prog-mode-hook 'linum-mode)
-  (remove-hook 'text-mode-hook 'linum-mode)
+  (add-hook 'conf-mode-hook 'myspacemacs/prog-mode)
+  (add-hook 'css-mode-hook 'myspacemacs/css-mode)
+  (add-hook 'css-mode-hook 'myspacemacs/prog-mode)
+  (add-hook 'prog-mode-hook 'myspacemacs/prog-mode)
+  (add-hook 'text-mode-hook 'myspacemacs/text-mode)
 
   ;; Additional patterns to match files to major modes
   (add-to-list 'auto-mode-alist '("\\.zsh$" . sh-mode))
@@ -165,21 +169,14 @@
       (when (stringp linum-relative-format)
         (setq linum-relative-format (concat linum-relative-format " ")))))
 
-  ;; Set up custom centered cursor mode
-  (define-global-minor-mode myspacemacs-centered-cursor-mode
-    centered-cursor-mode
-    (lambda ()
-      (unless (member major-mode '(spacemacs-buffer-mode
-                                   eshell-mode
-                                   shell-mode
-                                   term-mode))
-        (centered-cursor-mode t))))
-  (myspacemacs-centered-cursor-mode t)
-
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
 
-(defun myspacemacs//frame-title-format ()
+(defun myspacemacs/css-mode ()
+  "Configure css mode."
+  (smartparens-mode t))
+
+(defun myspacemacs/frame-title-format ()
   "Custom frame title."
   (cond
    ((and buffer-file-truename (projectile-project-p))
@@ -190,23 +187,19 @@
    (buffer-file-truename buffer-file-truename)
    (t "Spacemacs")))
 
-(defun myspacemacs//css-mode ()
-  "Configure css mode."
-  (smartparens-mode t))
-
-(defun myspacemacs//prog-mode ()
+(defun myspacemacs/prog-mode ()
   "Configure program mode."
   (spacemacs/toggle-truncate-lines-on)
   (rainbow-mode t))
 
-(defun myspacemacs//text-mode ()
+(defun myspacemacs/text-mode ()
   "Configure text mode."
   (if (member major-mode '(conf-mode
                            conf-unix-mode
                            gitignore-mode
                            nxml-mode
                            yaml-mode))
-      (myspacemacs//prog-mode)
+      (myspacemacs/prog-mode)
       (spacemacs/toggle-truncate-lines-off)
       (toggle-word-wrap t)
       (variable-pitch-mode t)))

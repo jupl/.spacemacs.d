@@ -7,7 +7,7 @@
 (defvar myspacemacs-max-column 79
   "Maximum columns for each line.")
 
-(defvar myspacemacs-path (file-name-directory load-file-name)
+(defconst myspacemacs-path (file-name-directory load-file-name)
   "Base directory for .spacemacs.d path.")
 
 (defvar myspacemacs-powerline-scale 1.4
@@ -34,5 +34,6 @@
 
 ;; Load additional libs
 (load (concat myspacemacs-path "hooks.el"))
+(load (concat myspacemacs-path "keybinds.el"))
 (load (concat myspacemacs-path "private.el"))
 (load (concat myspacemacs-path "setup.el"))
