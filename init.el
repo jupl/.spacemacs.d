@@ -97,6 +97,7 @@
    dotspacemacs-enable-lazy-installation nil
    dotspacemacs-enable-paste-transient-state t
    dotspacemacs-ex-command-key ";"
+   dotspacemacs-frame-title-format "Spacemacs"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-leader-key "SPC"
    dotspacemacs-line-numbers '(:enabled-for-modes
@@ -125,7 +126,6 @@
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
    helm-mode-handle-completion-in-region nil
-   frame-title-format "%b"
    frame-resize-pixelwise t
    madhat2r-theme-org-height t
    whitespace-line-column myspacemacs--max-column)
@@ -139,8 +139,9 @@
 (defun myspacemacs//user-config ()
   "Configure packages after they are loaded."
   (setq-default
-   grep-highlight-matches t
+   frame-title-format '((:eval (myspacemacs//frame-title-format)))
    fill-column myspacemacs--max-column
+   grep-highlight-matches t
    powerline-default-separator (if myspacemacs--gui 'bar nil))
 
   ;; Override the default variable pitch font
@@ -213,6 +214,20 @@
 
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
+
+(defun myspacemacs//frame-title-format ()
+  "Custom frame title."
+  (cond
+   ((and buffer-file-truename (projectile-project-p))
+    (concat
+     "["
+     (projectile-project-name)
+     "] "
+     (file-relative-name buffer-file-truename
+                         (projectile-project-root))))
+   ((projectile-project-p) (concat "[" (projectile-project-name) "]"))
+   (buffer-file-truename buffer-file-truename)
+   (t "Spacemacs")))
 
 (defun myspacemacs//after ()
   "Final configurations after everything is loaded.")
