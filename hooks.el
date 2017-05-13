@@ -1,14 +1,23 @@
-(setq-default
- myspacemacs--layers-hook nil
- myspacemacs--init-hook nil
- myspacemacs--user-init-hook nil
- myspacemacs--user-config-hook nil
- myspacemacs--after-hook nil)
+(defvar myspacemacs-layers-hook nil "Hook for dotspacemacs/layers.")
 
-(defun dotspacemacs/layers () (run-hooks 'myspacemacs--layers-hook))
-(defun dotspacemacs/init () (run-hooks 'myspacemacs--init-hook))
-(defun dotspacemacs/user-init () (run-hooks 'myspacemacs--user-init-hook))
+(defvar myspacemacs-init-hook nil "Hook for dotspacemacs/init.")
+
+(defvar myspacemacs-user-init-hook nil "Hook for dotspacemacs/user-init.")
+
+(defvar myspacemacs-user-config-hook nil "Hook for dotspacemacs/user-config.")
+
+(defun dotspacemacs/layers ()
+  "Configuration Layers declaration."
+  (run-hooks 'myspacemacs-layers-hook))
+
+(defun dotspacemacs/init ()
+  "Initialization function."
+  (run-hooks 'myspacemacs-init-hook))
+
+(defun dotspacemacs/user-init ()
+  "Initialization function for user code."
+  (run-hooks 'myspacemacs-user-init-hook))
+
 (defun dotspacemacs/user-config ()
-  (run-hooks 'myspacemacs--user-config-hook)
-  (run-with-timer 0 nil 'dotspacemacs/after))
-(defun dotspacemacs/after () (run-hooks 'myspacemacs--after-hook))
+  "Configuration function for user code."
+  (run-hooks 'myspacemacs-user-config-hook))
