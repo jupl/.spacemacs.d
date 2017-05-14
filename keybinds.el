@@ -1,7 +1,7 @@
-(defun myspacemacs/open-init ()
+(defun myspacemacs/open-local ()
   "Open init configuration."
   (interactive)
-  (find-file (concat myspacemacs-path "init.el")))
+  (find-file (concat myspacemacs-path "private/local.el")))
 
 (defun myspacemacs/open-setup ()
   "Open user setup configuration."
