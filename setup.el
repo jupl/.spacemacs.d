@@ -201,9 +201,11 @@
   "Configure text mode."
   (if (member major-mode '(conf-mode
                            conf-unix-mode
+                           editorconfig-conf-mode
                            evil-tutor-mode
                            gitignore-mode
                            nxml-mode
+                           snippet-mode
                            yaml-mode))
       (myspacemacs/prog-mode)
     (spacemacs/toggle-truncate-lines-off)
