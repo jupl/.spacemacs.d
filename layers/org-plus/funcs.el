@@ -47,12 +47,20 @@
 
 (defun org-plus/org-present-setup ()
   "Customize ui when org-present is about to start."
+  (when (fboundp 'spacemacs/toggle-vi-tilde-fringe-off)
+    (spacemacs/toggle-vi-tilde-fringe-off))
+  (when (fboundp 'spacemacs/toggle-vim-empty-lines-mode-off)
+    (spacemacs/toggle-vim-empty-lines-mode-off))
   (spacemacs/toggle-mode-line-off)
   (spacemacs/toggle-highlight-current-line-globally-off)
   (message ""))
 
 (defun org-plus/org-present-unsetup ()
   "Undo customizations when org-present is finished."
+  (when (fboundp 'spacemacs/toggle-vi-tilde-fringe-on)
+    (spacemacs/toggle-vi-tilde-fringe-on))
+  (when (fboundp 'spacemacs/toggle-vim-empty-lines-mode-on)
+    (spacemacs/toggle-vim-empty-lines-mode-on))
   (spacemacs/toggle-mode-line-on)
   (spacemacs/toggle-highlight-current-line-globally-on))
 
