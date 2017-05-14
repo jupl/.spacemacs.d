@@ -13,6 +13,17 @@
 (defvar myspacemacs-powerline-scale 1.4
   "Scale adjustment for mode line.")
 
+(defvar myspacemacs-prog-based-modes '(conf-mode
+                                       conf-unix-mode
+                                       editorconfig-conf-mode
+                                       evil-tutor-mode
+                                       gitignore-mode
+                                       nxml-mode
+                                       prog-mode
+                                       snippet-mode
+                                       yaml-mode)
+  "List of prog based modes, including prog mode itself.")
+
 (defvar myspacemacs-variable-font
   (if (fboundp 'mac-auto-operator-composition-mode)
       "Fira Sans"

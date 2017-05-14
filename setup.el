@@ -71,13 +71,9 @@
    dotspacemacs-frame-title-format "Spacemacs"
    dotspacemacs-highlight-delimiters 'current
    dotspacemacs-leader-key "SPC"
-   dotspacemacs-line-numbers '(:enabled-for-modes
-                               conf-mode
-                               conf-unix-mode
-                               nxml-mode
-                               prog-mode
-                               yaml-mode
-                               :relative t)
+   dotspacemacs-line-numbers (append '(:enabled-for-modes)
+                                     myspacemacs-prog-based-modes
+                                     '(:relative t))
    dotspacemacs-mode-line-unicode-symbols (display-graphic-p)
    dotspacemacs-persistent-server (and (display-graphic-p)
                                        (eq system-type 'darwin))
@@ -199,14 +195,7 @@
 
 (defun myspacemacs/text-mode ()
   "Configure text mode."
-  (if (member major-mode '(conf-mode
-                           conf-unix-mode
-                           editorconfig-conf-mode
-                           evil-tutor-mode
-                           gitignore-mode
-                           nxml-mode
-                           snippet-mode
-                           yaml-mode))
+  (if (member major-mode myspacemacs-prog-based-modes)
       (myspacemacs/prog-mode)
     (spacemacs/toggle-truncate-lines-off)
     (toggle-word-wrap t)
