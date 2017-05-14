@@ -85,8 +85,10 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
-   dotspacemacs-themes '(doom-one spacemacs-light)
-   dotspacemacs-visual-line-move-text t))
+   dotspacemacs-visual-line-move-text t)
+  (when (display-graphic-p)
+    (setq-default
+     dotspacemacs-themes '(doom-one spacemacs-light))))
 
 (defun myspacemacs/user-init ()
   "Initialization function for user code."
@@ -98,6 +100,7 @@
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
    helm-mode-handle-completion-in-region nil
+   line-spacing 0
    frame-resize-pixelwise t
    madhat2r-theme-org-height t
    whitespace-line-column myspacemacs-max-column)
@@ -155,12 +158,6 @@
     "qr" nil
     "qR" nil)
 
-  ;; Turn off minor mode lines
-  (spacemacs/toggle-mode-line-minor-modes-off)
-
-  ;; Turn on camel case motion
-  (spacemacs/toggle-camel-case-motion-globally-on)
-
   ;; Add a space between line numbers and content in non-gui mode
   (unless (display-graphic-p)
     (when (stringp linum-format)
@@ -168,6 +165,14 @@
     (with-eval-after-load 'linum-relative
       (when (stringp linum-relative-format)
         (setq linum-relative-format (concat linum-relative-format " ")))))
+
+  ;; Make tweaks to spacemacs
+  (spaceline-toggle-buffer-position-off)
+  (spaceline-toggle-buffer-size-off)
+  (spaceline-toggle-hud-off)
+  (spaceline-toggle-purpose-off)
+  (spacemacs/toggle-camel-case-motion-globally-on)
+  (spacemacs/toggle-mode-line-minor-modes-off)
 
   ;; Clear variable set earlier
   (setenv "INSIDE_EMACS" nil))
