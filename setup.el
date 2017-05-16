@@ -34,6 +34,7 @@
       gofmt-command "goimports")
      helm
      html
+     graphviz
      javascript-plus
      markdown-plus
      mouse
