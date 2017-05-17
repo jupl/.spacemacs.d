@@ -54,12 +54,14 @@
      syntax-checking
      (theming
       :variables
-      theming-modifications
-      '((doom-one
-         (linum-relative-current-face :inherit 'doom-nlinum-highlight
-                                      :background "#21242b"
-                                      :bold t)
-         (show-paren-match :foreground "#86dc2f"))))
+      theming-modifications '((doom-one
+                               (linum-relative-current-face
+                                :bold t
+                                :background "#21242b"
+                                :inherit 'doom-nlinum-highlight)
+                               (sp-show-pair-match-face
+                                :bold t
+                                :foreground "#86dc2f"))))
      vim-empty-lines
      vimscript
      yaml)
