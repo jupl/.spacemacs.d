@@ -56,12 +56,19 @@
       :variables
       theming-modifications '((doom-one
                                (linum-relative-current-face
-                                :bold t
-                                :background "#21242b"
-                                :inherit 'doom-nlinum-highlight)
+                                :bold nil
+                                :background "#21242b")
                                (sp-show-pair-match-face
                                 :bold t
-                                :foreground "#86dc2f"))))
+                                :foreground "#86dc2f"))
+                              (spacemacs-dark
+                               (linum-relative-current-face
+                                :bold nil
+                                :underline nil))
+                              (spacemacs-light
+                               (linum-relative-current-face
+                                :bold nil
+                                :underline nil))))
      vim-empty-lines
      vimscript
      yaml)
