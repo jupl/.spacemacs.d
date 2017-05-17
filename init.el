@@ -30,6 +30,19 @@
     "DejaVu Sans")
   "Non-monospace font.")
 
+(defun myspacemacs/fix-linum-face ()
+  "Fix face bleeding for linum faces and enforce consistency."
+  (with-eval-after-load 'linum
+    (set-face-attribute 'linum nil
+                        :bold nil
+                        :inverse-video nil
+                        :underline nil))
+  (with-eval-after-load 'linum-relative
+    (set-face-attribute 'linum-relative-current-face nil
+                        :bold t
+                        :inverse-video nil
+                        :underline nil)))
+
 ;; Set up environment variables
 (with-eval-after-load 'exec-path-from-shell
   (exec-path-from-shell-setenv "INSIDE_EMACS" emacs-version))
@@ -42,6 +55,9 @@
 (when (eq system-type 'darwin)
   (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
     (normal-top-level-add-subdirs-to-load-path)))
+
+;; Fix linum face after theme changes
+(add-hook 'spacemacs-post-theme-change-hook 'myspacemacs/fix-linum-face)
 
 ;; Load additional libs
 (load (concat myspacemacs-path "hooks.el"))
