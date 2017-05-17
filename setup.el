@@ -57,7 +57,8 @@
       theming-modifications
       '((doom-one
          (linum-relative-current-face :inherit 'doom-nlinum-highlight
-                                      :background "#21242b")
+                                      :background "#21242b"
+                                      :bold t)
          (show-paren-match :foreground "#86dc2f"))))
      vim-empty-lines
      vimscript
