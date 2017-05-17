@@ -52,6 +52,12 @@
       :variables
       spell-checking-enable-by-default nil)
      syntax-checking
+     (theming
+      :variables
+      theming-modifications
+      '((doom-one
+         (linum-relative-current-face :inherit 'doom-nlinum-highlight)
+         (show-paren-match :foreground "#86dc2f"))))
      vim-empty-lines
      vimscript
      yaml)
