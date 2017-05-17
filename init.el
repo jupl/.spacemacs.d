@@ -21,6 +21,7 @@
                                        nxml-mode
                                        prog-mode
                                        snippet-mode
+                                       typescript-mode
                                        yaml-mode)
   "List of prog based modes, including prog mode itself.")
 
