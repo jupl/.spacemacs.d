@@ -17,11 +17,14 @@
                                        conf-unix-mode
                                        editorconfig-conf-mode
                                        evil-tutor-mode
+                                       json-mode
                                        gitignore-mode
                                        nxml-mode
                                        prog-mode
+                                       react-mode
                                        snippet-mode
                                        typescript-mode
+                                       web-mode
                                        yaml-mode)
   "List of prog based modes, including prog mode itself.")
 
