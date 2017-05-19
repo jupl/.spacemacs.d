@@ -26,7 +26,6 @@
      colors
      command-log
      doom
-     editorconfig
      emacs-lisp
      git-plus
      (go
