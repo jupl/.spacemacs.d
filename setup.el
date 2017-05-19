@@ -7,7 +7,6 @@
 (defun myspacemacs/layers ()
   "Configuration layers declaration."
   (setq-default
-   dotspacemacs-additional-packages '(madhat2r-theme)
    dotspacemacs-configuration-layers
    '((auto-completion
       :variables
@@ -115,7 +114,6 @@
    helm-mode-handle-completion-in-region nil
    line-spacing 0
    frame-resize-pixelwise t
-   madhat2r-theme-org-height t
    whitespace-line-column myspacemacs-max-column)
 
   ;; Emacs 26
