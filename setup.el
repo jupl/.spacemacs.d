@@ -106,14 +106,14 @@
   "Initialization function for user code."
   (setq-default
    create-lockfiles nil
-   display-time-format "%a %m-%d %I:%M"
    display-time-default-load-average nil
+   display-time-format "%a %m-%d %I:%M"
    evil-echo-state nil
    evil-move-cursor-back nil
    exec-path-from-shell-check-startup-files nil
+   frame-resize-pixelwise t
    helm-mode-handle-completion-in-region nil
    line-spacing 0
-   frame-resize-pixelwise t
    whitespace-line-column myspacemacs-max-column)
 
   ;; Emacs 26
