@@ -54,7 +54,7 @@
       :variables
       theming-modifications '((doom-one
                                (linum-relative-current-face
-                                :bold nil
+                                :bold t
                                 :background "#21242b")
                                (sp-show-pair-match-face
                                 :bold t
