@@ -52,9 +52,11 @@
      syntax-checking
      (theming
       :variables
-      theming-modifications '((doom-one
+      theming-modifications `((doom-one
                                (linum-relative-current-face
-                                :background "#21242b"
+                                :background ,(if (display-graphic-p) "#21242b" "unspecified-bg")
+                                :bold t
+                                :foreground ,(if (display-graphic-p) "#bbc2cf" "#bfbfbf")
                                 :underline nil)
                                (sp-show-pair-match-face
                                 :foreground "#86dc2f"))
@@ -96,10 +98,8 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
                                 bookmarks)
-   dotspacemacs-visual-line-move-text t)
-  (when (display-graphic-p)
-    (setq-default
-     dotspacemacs-themes '(doom-one spacemacs-light))))
+   dotspacemacs-visual-line-move-text t
+   dotspacemacs-themes '(doom-one spacemacs-light)))
 
 (defun myspacemacs/user-init ()
   "Initialization function for user code."

@@ -15,9 +15,11 @@
 
 (defvar myspacemacs-prog-based-modes '(conf-mode
                                        conf-unix-mode
+                                       conf-space-mode
                                        editorconfig-conf-mode
                                        evil-tutor-mode
                                        json-mode
+                                       gitconfig-mode
                                        gitignore-mode
                                        nxml-mode
                                        prog-mode
