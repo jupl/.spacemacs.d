@@ -54,9 +54,9 @@
       :variables
       theming-modifications `((doom-one
                                (linum-relative-current-face
-                                :background ,(if (display-graphic-p) "#21242b" "unspecified-bg")
-                                :bold t
-                                :foreground ,(if (display-graphic-p) "#bbc2cf" "#bfbfbf")
+                                :background ,(if (display-graphic-p)
+                                                 "#21242b"
+                                               "unspecified-bg")
                                 :underline nil)
                                (sp-show-pair-match-face
                                 :foreground "#86dc2f"))
