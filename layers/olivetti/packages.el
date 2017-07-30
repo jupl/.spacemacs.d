@@ -3,6 +3,7 @@
 (defun olivetti/init-olivetti ()
   "Initialize Olivetti."
   (use-package olivetti
+    :defer t
     :init
     (spacemacs|define-transient-state olivetti
       :title "Olivetti"

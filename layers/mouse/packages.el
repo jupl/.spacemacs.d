@@ -3,6 +3,7 @@
 (defun mouse/init-disable-mouse ()
   "Initialize disable-mouse."
   (use-package disable-mouse
+    :defer t
     :init (progn
             (spacemacs|add-toggle disable-mouse
               :mode global-disable-mouse-mode

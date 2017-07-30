@@ -1,4 +1,7 @@
-(setq org-plus-packages '(org org-present))
+(setq org-plus-packages '(org
+                          (org-agenda :location built-in)
+                          (org-habit :location built-in)
+                          org-present))
 
 ;; For LaTeX and Beamer:
 ;; 1. Install LaTeX (and run "tlmgr update --self --all")
@@ -29,12 +32,13 @@
        org-startup-with-inline-images nil
        org-src-preserve-indentation t
        org-startup-folded 'showall)
-      (use-package ox-beamer)
+      (use-package ox-beamer :defer t)
       (mapc 'org-plus/add-fixed-pitch-to-face '(org-code
                                                 org-block
                                                 org-formula
                                                 org-table
                                                 org-verbatim))
+      (add-to-list 'org-modules 'org-habit)
       (add-to-list 'org-agenda-files "~/org")))
   (with-eval-after-load 'ox-html
     (setq-default
@@ -71,3 +75,16 @@
     "j" 'org-present-prev
     "k" 'org-present-next
     "." 'org-present-beginning))
+
+(defun org-plus/post-init-org-agenda ()
+  "Customize org-agenda."
+  (spacemacs|use-package-add-hook org-agenda
+    :post-config
+    (setq-default org-agenda-repeating-timestamp-show-all nil)))
+
+(defun org-plus/init-org-habit ()
+  "Initialize org-habit."
+  (use-package org-habit
+    :defer t
+    :config
+    (setq-default org-habit-show-habits-only-for-today nil)))

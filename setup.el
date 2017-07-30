@@ -39,11 +39,12 @@
      olivetti
      (org-plus
       :variables
-      org-enable-org-journal-support t
-      org-journal-dir "~/org/journal"
       org-plus-html-pygments-style "xcode"
       org-plus-pdf-no-tex t
-      org-plus-use-pygments t)
+      org-plus-use-pygments t
+      org-enable-org-journal-support t
+      org-journal-dir "~/org/journal"
+      org-want-todo-bindings t)
      osx
      restclient
      shell
