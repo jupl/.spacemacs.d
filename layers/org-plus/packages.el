@@ -39,7 +39,7 @@
                                                 org-table
                                                 org-verbatim))
       (add-to-list 'org-modules 'org-habit)
-      (add-to-list 'org-agenda-files "~/org")))
+      (add-to-list 'org-agenda-files "~/org/habits")))
   (with-eval-after-load 'ox-html
     (setq-default
      org-html-head-include-scripts nil
