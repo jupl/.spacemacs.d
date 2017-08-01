@@ -29,9 +29,10 @@
        org-export-with-section-numbers nil
        org-export-with-toc nil
        org-export-allow-bind-keywords t
-       org-startup-with-inline-images nil
        org-src-preserve-indentation t
-       org-startup-folded 'showall)
+       org-startup-folded 'showall
+       org-startup-indented t
+       org-startup-with-inline-images nil)
       (use-package ox-beamer :defer t)
       (mapc 'org-plus/add-fixed-pitch-to-face '(org-code
                                                 org-block
