@@ -61,6 +61,21 @@
                                                  "#21242b"
                                                "unspecified-bg")
                                 :underline nil)
+                               (mode-line-inactive
+                                :background ,(if (display-graphic-p)
+                                                 "#202328"
+                                               "#2e2e2e"))
+                               (powerline-active1
+                                :background ,(if (display-graphic-p)
+                                                 "#282c34"
+                                               nil)
+                                :foreground ,(if (display-graphic-p)
+                                                 "#bbc2cf"
+                                               "#bfbfbf"))
+                               (powerline-inactive2
+                                :background ,(if (display-graphic-p)
+                                                 "#202328"
+                                               "#2e2e2e"))
                                (sp-show-pair-match-face
                                 :foreground "#86dc2f"))
                               (spacemacs-dark
