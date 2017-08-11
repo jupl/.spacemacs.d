@@ -57,9 +57,6 @@
       :variables
       theming-modifications `((doom-one
                                (linum-relative-current-face
-                                :background ,(if (display-graphic-p)
-                                                 "#21242b"
-                                               "unspecified-bg")
                                 :underline nil)
                                (mode-line-inactive
                                 :background ,(if (display-graphic-p)
@@ -78,6 +75,20 @@
                                                "#2e2e2e"))
                                (sp-show-pair-match-face
                                 :foreground "#86dc2f"))
+                              (doom-one-light
+                               (linum-relative-current-face
+                                :underline nil)
+                               (powerline-active1
+                                :background ,(if (display-graphic-p)
+                                                 "#fafafa"
+                                               nil)
+                                :foreground ,(if (display-graphic-p)
+                                                 "#383a42"
+                                               "#424242"))
+                               (powerline-inactive2
+                                :background "#dfdfdf")
+                               (sp-show-pair-match-face
+                                :background nil))
                               (spacemacs-dark
                                (linum-relative-current-face
                                 :bold nil
@@ -117,7 +128,9 @@
                                 (projects . 5)
                                 bookmarks)
    dotspacemacs-visual-line-move-text t
-   dotspacemacs-themes '(doom-one spacemacs-light)))
+   dotspacemacs-themes (if (display-graphic-p)
+                           '(doom-one doom-one-light)
+                           '(spacemacs-dark spacemacs-light))))
 
 (defun myspacemacs/user-init ()
   "Initialization function for user code."
