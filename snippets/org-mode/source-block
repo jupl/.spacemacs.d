@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Source Block
+# key: <s
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+# condition: (or (= (current-column) 2) (= (current-column) 0))
+# --
+#+BEGIN_SRC $1
+$0
+#+END_SRC
