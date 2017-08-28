@@ -47,7 +47,9 @@
       org-want-todo-bindings t)
      osx
      restclient
-     shell
+     (shell
+      :variables
+      shell-default-shell 'eshell)
      shell-scripts
      (spell-checking
       :variables
@@ -165,10 +167,7 @@
   (set-face-attribute 'fixed-pitch nil :family myspacemacs-fixed-font)
 
   ;; Set up eshell aliases
-  ;; TODO Try to open buffers for emacs alias in a Spacemacs friendly way
   (with-eval-after-load 'em-alias
-    (eshell/alias "emacs" "for i in ${eshell-flatten-list $*} {find-file $i}")
-    (eshell/alias "erase-buffer" 'eshell/clear)
     (eshell/alias "hgrep" "history | grep $*")
     (eshell/alias "la" "ls -lAh $*"))
 
@@ -195,10 +194,13 @@
   (define-key global-map (kbd "C-q") nil)
   (spacemacs/set-leader-keys
     ";" 'evilnc-comment-or-uncomment-lines
+    "ase" nil
+    "asi" nil
+    "asm" nil
+    "ast" nil
+    "asT" nil
     "qd" nil
-    "qD" nil
-    "qr" nil
-    "qR" nil)
+    "qD" nil)
 
   ;; Add a space between line numbers and content in non-gui mode
   (unless (display-graphic-p)
