@@ -36,7 +36,9 @@
      javascript-plus
      markdown-plus
      mouse
-     olivetti
+     (olivetti
+      :variables
+      olivetti-hide-mode-line t)
      (org-plus
       :variables
       org-plus-html-pygments-style "xcode"
