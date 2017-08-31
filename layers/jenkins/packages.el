@@ -4,9 +4,10 @@
   "Initialize Jenkins."
   (use-package jenkins
     :defer t
+    :init
+    (spacemacs/set-leader-keys "aJ" 'jenkins)
     :config
     (let ((common-keymap (copy-keymap evil-evilified-state-map)))
-      (spacemacs/set-leader-keys "aJ" 'jenkins)
       (define-key common-keymap "b" nil)
       (define-key common-keymap "v" nil)
       (let ((keymap (copy-keymap common-keymap)))
