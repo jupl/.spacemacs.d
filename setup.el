@@ -215,7 +215,6 @@
   (spaceline-toggle-buffer-position-off)
   (spaceline-toggle-buffer-size-off)
   (spaceline-toggle-hud-off)
-  (spaceline-toggle-purpose-off)
   (spacemacs/toggle-camel-case-motion-globally-on)
   (spacemacs/toggle-mode-line-minor-modes-off)
 
