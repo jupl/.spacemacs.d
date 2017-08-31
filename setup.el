@@ -30,9 +30,9 @@
      (go
       :variables
       gofmt-command "goimports")
+     graphviz
      helm
      html
-     graphviz
      javascript-plus
      markdown-plus
      mouse
