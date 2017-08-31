@@ -14,5 +14,6 @@
       ("s" olivetti-set-width "Set width")
       ("Q" olivetti-mode "Turn off" :exit t)
       ("q" nil "Quit" :exit t))
-    (spacemacs/set-leader-keys "To" 'spacemacs/olivetti-transient-state/body)
-    :config (spacemacs|hide-lighter olivetti-mode)))
+    (spacemacs/set-leader-keys "wc" 'spacemacs/olivetti-transient-state/body)
+    :config
+    (spacemacs|hide-lighter olivetti-mode)))
