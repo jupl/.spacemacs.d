@@ -3,7 +3,7 @@
 ;; For icons see https://github.com/domtronn/all-the-icons.el
 
 (defun doom/init-doom-themes ()
-  "Wiat for doom to load to set up neotree."
+  "Wait for doom to load to set up neotree."
   (use-package doom-themes
     :defer t
     :init
