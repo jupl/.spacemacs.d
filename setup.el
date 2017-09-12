@@ -29,6 +29,7 @@
      git-plus
      (go
       :variables
+      go-tab-width 2
       gofmt-command "goimports")
      graphviz
      helm
