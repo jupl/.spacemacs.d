@@ -36,9 +36,8 @@
     "DejaVu Sans")
   "Non-monospace font.")
 
-;; Set up environment variables
-(with-eval-after-load 'exec-path-from-shell
-  (exec-path-from-shell-setenv "INSIDE_EMACS" emacs-version))
+;; Ensure tmux is not run when subshell is started
+(setenv "NO_TMUX" "true")
 
 ;; Enable ligatures if available
 (when (fboundp 'mac-auto-operator-composition-mode)

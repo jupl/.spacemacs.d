@@ -144,7 +144,6 @@
    display-time-format "%a %m-%d %I:%M"
    evil-echo-state nil
    evil-move-cursor-back nil
-   exec-path-from-shell-check-startup-files nil
    frame-resize-pixelwise t
    helm-mode-handle-completion-in-region nil
    line-spacing 0
@@ -218,10 +217,7 @@
   (spaceline-toggle-buffer-size-off)
   (spaceline-toggle-hud-off)
   (spacemacs/toggle-camel-case-motion-globally-on)
-  (spacemacs/toggle-mode-line-minor-modes-off)
-
-  ;; Clear variable set earlier
-  (setenv "INSIDE_EMACS" nil))
+  (spacemacs/toggle-mode-line-minor-modes-off))
 
 (defun myspacemacs/css-mode ()
   "Configure css mode."
