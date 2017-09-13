@@ -154,7 +154,10 @@
   (unless (fboundp 'display-buffer-in-major-side-window)
     (defalias
       'display-buffer-in-major-side-window
-      'window--make-major-side-window)))
+      'window--make-major-side-window))
+
+  ;; Fake tmux being set so it is not run in shells
+  (setenv "TMUX" "faux"))
 
 (defun myspacemacs/user-config ()
   "Configuration function for user code."

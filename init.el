@@ -36,9 +36,6 @@
     "DejaVu Sans")
   "Non-monospace font.")
 
-;; Ensure tmux is not run when subshell is started
-(setenv "NO_TMUX" "true")
-
 ;; Enable ligatures if available
 (when (fboundp 'mac-auto-operator-composition-mode)
   (mac-auto-operator-composition-mode t))
