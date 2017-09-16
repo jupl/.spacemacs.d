@@ -16,6 +16,7 @@
 (defvar myspacemacs-prog-based-modes '(conf-mode
                                        conf-unix-mode
                                        conf-space-mode
+                                       dockerfile-mode
                                        editorconfig-conf-mode
                                        evil-tutor-mode
                                        json-mode
