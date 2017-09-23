@@ -165,6 +165,7 @@
    frame-title-format '((:eval (myspacemacs/frame-title-format)))
    fill-column myspacemacs-max-column
    grep-highlight-matches t
+   line-spacing 0
    powerline-default-separator (if (display-graphic-p) 'bar nil))
 
   ;; Set font families
