@@ -61,47 +61,23 @@
      (theming
       :variables
       theming-modifications `((doom-one
-                               (linum-relative-current-face
-                                :underline nil)
-                               (mode-line-inactive
-                                :background ,(if (display-graphic-p)
-                                                 "#202328"
-                                               "#2e2e2e"))
-                               (powerline-active1
-                                :background ,(if (display-graphic-p)
-                                                 "#282c34"
-                                               nil)
-                                :foreground ,(if (display-graphic-p)
-                                                 "#bbc2cf"
-                                               "#bfbfbf"))
-                               (powerline-inactive2
-                                :background ,(if (display-graphic-p)
-                                                 "#202328"
-                                               "#2e2e2e"))
-                               (sp-show-pair-match-face
-                                :foreground "#86dc2f"))
+                               (linum-relative-current-face :underline nil)
+                               (powerline-active1 :background "#1c1f24"
+                                                  :foreground "#bbc2cf")
+                               (powerline-inactive2 :background "#202328")
+                               (sp-show-pair-match-face :foreground "#86dc2f"))
                               (doom-one-light
-                               (linum-relative-current-face
-                                :underline nil)
-                               (powerline-active1
-                                :background ,(if (display-graphic-p)
-                                                 "#fafafa"
-                                               nil)
-                                :foreground ,(if (display-graphic-p)
-                                                 "#383a42"
-                                               "#424242"))
-                               (powerline-inactive2
-                                :background "#dfdfdf")
-                               (sp-show-pair-match-face
-                                :background nil))
+                               (linum-relative-current-face :underline nil)
+                               (powerline-active1 :background "#e7e7e7"
+                                                  :foreground ,"#383a42")
+                               (powerline-inactive2 :background "#dfdfdf")
+                               (sp-show-pair-match-face :background nil))
                               (spacemacs-dark
-                               (linum-relative-current-face
-                                :bold nil
-                                :underline nil))
+                               (linum-relative-current-face :bold nil
+                                                            :underline nil))
                               (spacemacs-light
-                               (linum-relative-current-face
-                                :bold nil
-                                :underline nil))))
+                               (linum-relative-current-face :bold nil
+                                                            :underline nil))))
      vim-empty-lines
      vimscript
      yaml)
