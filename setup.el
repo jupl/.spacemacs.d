@@ -62,12 +62,14 @@
       :variables
       theming-modifications `((doom-one
                                (linum-relative-current-face :underline nil)
+                               (modeline-highlight :inherit nil)
                                (powerline-active1 :background "#1c1f24"
                                                   :foreground "#bbc2cf")
                                (powerline-inactive2 :background "#202328")
                                (sp-show-pair-match-face :foreground "#86dc2f"))
                               (doom-one-light
                                (linum-relative-current-face :underline nil)
+                               (modeline-highlight :inherit nil)
                                (powerline-active1 :background "#e7e7e7"
                                                   :foreground ,"#383a42")
                                (powerline-inactive2 :background "#dfdfdf")
