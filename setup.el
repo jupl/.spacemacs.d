@@ -165,10 +165,10 @@
   ;; Additional patterns to match files to major modes
   (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode-as-text))
   (add-to-list 'auto-mode-alist '("/\\.npmignore$" . gitignore-mode))
-  (add-to-list 'auto-mode-alist '("/\\.?Brewfile$" . ruby-mode))
   (add-to-list 'auto-mode-alist '("/\\.mbsyncrc$" . conf-mode))
   (add-to-list 'auto-mode-alist '("/\\.zshrc\\.pre$" . sh-mode))
   (add-to-list 'auto-mode-alist '("/\\.zshrc\\.local$" . sh-mode))
+  (add-to-list 'auto-mode-alist '("/Brewfile$" . ruby-mode))
 
   ;; Additional keybinds
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
