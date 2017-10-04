@@ -166,9 +166,6 @@
   (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode-as-text))
   (add-to-list 'auto-mode-alist '("/\\.mbsyncrc$" . conf-mode))
   (add-to-list 'auto-mode-alist '("/\\.npmignore$" . gitignore-mode))
-  (add-to-list 'auto-mode-alist '("/\\.os\\.tmux\\.conf$" . conf-space-mode))
-  (add-to-list 'auto-mode-alist '("/\\.zshenv\\.local$" . sh-mode))
-  (add-to-list 'auto-mode-alist '("/\\.zshrc\\.local$" . sh-mode))
   (add-to-list 'auto-mode-alist '("/Brewfile$" . ruby-mode))
 
   ;; Additional keybinds
@@ -180,11 +177,6 @@
   (define-key global-map (kbd "C-q") nil)
   (spacemacs/set-leader-keys
     ";" 'evilnc-comment-or-uncomment-lines
-    "ase" nil
-    "asi" nil
-    "asm" nil
-    "ast" nil
-    "asT" nil
     "qd" nil
     "qD" nil)
 
