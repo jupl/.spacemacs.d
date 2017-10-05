@@ -49,6 +49,7 @@
       org-journal-dir "~/org/journal"
       org-want-todo-bindings t)
      osx
+     plantuml
      restclient
      (shell
       :variables
