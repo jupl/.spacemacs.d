@@ -104,8 +104,7 @@
                                      myspacemacs-prog-based-modes
                                      '(:relative t))
    dotspacemacs-mode-line-unicode-symbols (display-graphic-p)
-   dotspacemacs-persistent-server (and (display-graphic-p)
-                                       (eq system-type 'darwin))
+   dotspacemacs-persistent-server (display-graphic-p)
    dotspacemacs-scratch-mode 'fundamental-mode
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 5)
