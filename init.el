@@ -1,4 +1,5 @@
-(defvar myspacemacs-fixed-font "Fira Code"
+(defvar myspacemacs-fixed-font
+  (if (eq system-type 'darwin) "Fira Code" "Fira Mono")
   "Monospace font.")
 
 (defvar myspacemacs-font-size nil
