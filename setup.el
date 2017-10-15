@@ -35,6 +35,7 @@
      helm
      html
      javascript-plus
+     lua
      markdown-plus
      mouse
      (olivetti
