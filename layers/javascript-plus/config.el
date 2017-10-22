@@ -1,4 +1,3 @@
 (setq-default
  js2-mode-show-parse-errors nil
- js2-mode-show-strict-warnings nil
- flycheck-disabled-checkers '(typescript-tslint))
+ js2-mode-show-strict-warnings nil)

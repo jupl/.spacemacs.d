@@ -1,4 +1,4 @@
-(setq javascript-plus-packages '(json-mode))
+(setq javascript-plus-packages '(json-mode flycheck))
 
 (defun javascript-plus/post-init-json-mode ()
   "Treat additional files as json."
@@ -9,3 +9,7 @@
   (add-to-list 'auto-mode-alist '("/\\.jsbeautifyrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("/\\.jshintrc$" . json-mode))
   (add-to-list 'auto-mode-alist '("/\\.tern-project$" . json-mode)))
+
+(defun javascript-plus/post-init-flycheck ()
+  "Disable TSLint by default."
+  (add-to-list 'flycheck-disabled-checkers 'typescript-tslint))
