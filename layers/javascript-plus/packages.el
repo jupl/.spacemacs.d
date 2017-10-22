@@ -12,4 +12,6 @@
 
 (defun javascript-plus/post-init-flycheck ()
   "Disable TSLint by default."
-  (add-to-list 'flycheck-disabled-checkers 'typescript-tslint))
+  (setq-default
+   flycheck-disabled-checkers (cons 'typescript-tslint
+                                    flycheck-disabled-checkers)))
