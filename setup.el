@@ -181,8 +181,15 @@
     "qd" nil
     "qD" nil)
 
-  ;; Add a space between line numbers and content in non-gui mode
+  ;; When running in non-GUI mode:
+  ;; - Disable restart command shortcuts in daemon mode
+  ;; - Add a space between line numbers and content
   (unless (display-graphic-p)
+    (when (daemonp)
+      (spacemacs/set-leader-keys
+        "qr" nil
+        "qR" nil
+        "qt" nil))
     (when (stringp linum-format)
       (setq linum-format (concat linum-format " ")))
     (with-eval-after-load 'linum-relative
