@@ -6,4 +6,10 @@
 
 (defun git-plus/post-init-magit ()
   "Add keybind to custom magit clone command."
-  (spacemacs/set-leader-keys "gc" 'git-plus/magit-clone))
+  (spacemacs/set-leader-keys "gc" 'git-plus/magit-clone)
+  (spacemacs|use-package-add-hook magit
+    :post-config
+    (magit-add-section-hook 'magit-status-sections-hook
+                            'magit-insert-unpushed-to-upstream
+                            'magit-insert-unpushed-to-upstream-or-recent
+                            'replace)))
