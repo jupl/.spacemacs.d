@@ -213,14 +213,25 @@
 
 (defun myspacemacs/frame-title-format ()
   "Custom frame title."
-  (cond
-   ((and buffer-file-truename (projectile-project-p))
-    (concat "[" (projectile-project-name) "] " (file-relative-name
-                                                buffer-file-truename
-                                                (projectile-project-root))))
-   ((projectile-project-p) (concat "[" (projectile-project-name) "]"))
-   (buffer-file-truename buffer-file-truename)
-   (t "Spacemacs")))
+  (let ((filename (if (and buffer-file-truename (projectile-project-p))
+                      (file-relative-name buffer-file-truename
+                                          (projectile-project-root))
+                    buffer-file-truename))
+        (hostname (file-remote-p default-directory 'host))
+        (project (and (projectile-project-p) (projectile-project-name))))
+    (cond
+     ((and project hostname filename)
+      (concat "[" project "@" hostname "] " filename))
+     ((and project hostname)
+      (concat "[" project "@" hostname "]"))
+     ((and project filename)
+      (concat "[" project "] " filename))
+     ((and hostname filename)
+      (concat "[@" hostname "] " filename))
+     (project (concat "[" project "]"))
+     (hostname (concat "[@" hostname "]"))
+     (filename filename)
+     (t "Spacemacs"))))
 
 (defun myspacemacs/prog-mode ()
   "Configure program mode."
