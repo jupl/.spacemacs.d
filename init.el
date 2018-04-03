@@ -43,7 +43,12 @@
   (mac-auto-operator-composition-mode t))
 
 ;; Add Homebrew packages to the load-path
-(when (eq system-type 'darwin)
+(when (and (eq system-type 'darwin) (executable-find "keychain"))
+  (seq-do
+   (lambda (x) (apply #'setenv (split-string x "=")))
+   (seq-filter
+    (lambda (x) (string-prefix-p "SSH_" x))
+    (split-string (shell-command-to-string "keychain --eval") "[;\n]+")))
   (let ((default-directory "/usr/local/share/emacs/site-lisp/"))
     (normal-top-level-add-subdirs-to-load-path)))
 
