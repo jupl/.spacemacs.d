@@ -38,10 +38,9 @@
     "DejaVu Sans")
   "Non-monospace font.")
 
-;; Set server name to $DISPLAY if on GUI
-(let ((display (getenv "DISPLAY")))
-  (when (> (length display))
-    (setq server-name display)))
+;; Set server name to gui if GUI
+(when (display-graphic-p)
+  (setq server-name "gui"))
 
 ;; Enable ligatures if available
 (when (fboundp 'mac-auto-operator-composition-mode)
