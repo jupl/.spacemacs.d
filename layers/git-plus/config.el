@@ -1,6 +1,6 @@
 (setq-default
  git-magit-status-fullscreen t
- magit-push-always-verify nil
+ magit-commit-show-diff nil
  magit-visit-ref-behavior '(create-branch checkout-branch)
  projectile-use-git-grep t
  vc-follow-symlinks t

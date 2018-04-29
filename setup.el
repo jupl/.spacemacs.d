@@ -65,16 +65,14 @@
       theming-modifications `((doom-one
                                (linum-relative-current-face :underline nil)
                                (modeline-highlight :inherit nil)
-                               (powerline-active1 :background "#1c1f24"
-                                                  :foreground "#bbc2cf")
-                               (powerline-inactive2 :background "#202328")
+                               (powerline-active2 :inherit powerline-active0)
+                               (powerline-inactive2 :inherit powerline-inactive0)
                                (sp-show-pair-match-face :foreground "#86dc2f"))
                               (doom-one-light
                                (linum-relative-current-face :underline nil)
                                (modeline-highlight :inherit nil)
-                               (powerline-active1 :background "#e7e7e7"
-                                                  :foreground ,"#383a42")
-                               (powerline-inactive2 :background "#dfdfdf")
+                               (powerline-active2 :inherit powerline-active0)
+                               (powerline-inactive2 :inherit powerline-inactive0)
                                (sp-show-pair-match-face :background nil))
                               (spacemacs-dark
                                (linum-relative-current-face :bold nil
@@ -128,6 +126,11 @@
    helm-mode-handle-completion-in-region nil
    line-spacing 0
    whitespace-line-column myspacemacs-max-column)
+
+  (when (eq system-type 'windows-nt)
+    (setq-default
+     projectile-enable-caching t
+     projectile-indexing-method 'native))
 
   ;; Emacs 26
   (unless (fboundp 'display-buffer-in-major-side-window)
@@ -210,14 +213,25 @@
 
 (defun myspacemacs/frame-title-format ()
   "Custom frame title."
-  (cond
-   ((and buffer-file-truename (projectile-project-p))
-    (concat "[" (projectile-project-name) "] " (file-relative-name
-                                                buffer-file-truename
-                                                (projectile-project-root))))
-   ((projectile-project-p) (concat "[" (projectile-project-name) "]"))
-   (buffer-file-truename buffer-file-truename)
-   (t "Spacemacs")))
+  (let ((filename (if (and buffer-file-truename (projectile-project-p))
+                      (file-relative-name buffer-file-truename
+                                          (projectile-project-root))
+                    buffer-file-truename))
+        (hostname (file-remote-p default-directory 'host))
+        (project (and (projectile-project-p) (projectile-project-name))))
+    (cond
+     ((and project hostname filename)
+      (concat "[" project "@" hostname "] " filename))
+     ((and project hostname)
+      (concat "[" project "@" hostname "]"))
+     ((and project filename)
+      (concat "[" project "] " filename))
+     ((and hostname filename)
+      (concat "[@" hostname "] " filename))
+     (project (concat "[" project "]"))
+     (hostname (concat "[@" hostname "]"))
+     (filename filename)
+     (t "Spacemacs"))))
 
 (defun myspacemacs/prog-mode ()
   "Configure program mode."

@@ -33,7 +33,7 @@
        org-startup-folded 'showall
        org-startup-indented t
        org-startup-with-inline-images nil)
-      (use-package ox-beamer :defer t)
+      (use-package ox-beamer)
       (mapc 'org-plus/add-fixed-pitch-to-face '(org-code
                                                 org-block
                                                 org-formula
