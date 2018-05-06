@@ -1,6 +1,6 @@
-(setq centered-cursor-packages '(centered-cursor))
+(setq centered-cursor-packages '(centered-cursor-mode))
 
-(defun centered-cursor/post-init-centered-cursor ()
+(defun centered-cursor/post-init-centered-cursor-mode ()
   "Use custom global centered cursor mode."
   (define-global-minor-mode centered-cursor/global-mode
     centered-cursor-mode
