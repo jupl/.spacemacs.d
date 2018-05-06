@@ -9,7 +9,5 @@
                                  (t nil))
  version-control-diff-side 'left)
 
-(defvar git-plus-repositories-path (if (eq system-type 'darwin)
-                                       "~/Repositories"
-                                     "~/repositories")
+(defvar git-plus-repositories-path "~/Repositories"
   "Default path where repositories are hosted.")
