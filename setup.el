@@ -138,9 +138,8 @@
       'display-buffer-in-major-side-window
       'window--make-major-side-window))
 
-  ;; macOS: fake tmux being set for exec-path-from-shell
-  (when (eq system-type 'darwin)
-    (setenv "TMUX" "faux")))
+  ;; Fake tmux being set so it is not run in shells
+  (setenv "TMUX" "faux"))
 
 (defun myspacemacs/user-config ()
   "Configuration function for user code."
