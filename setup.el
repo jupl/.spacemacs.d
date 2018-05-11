@@ -125,6 +125,7 @@
    frame-resize-pixelwise t
    helm-mode-handle-completion-in-region nil
    line-spacing 0
+   term-term-name "screen-256color"
    whitespace-line-column myspacemacs-max-column)
 
   (when (eq system-type 'windows-nt)
