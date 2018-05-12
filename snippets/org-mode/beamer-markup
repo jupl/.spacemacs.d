@@ -2,7 +2,6 @@
 # name: Beamer Markup
 # key: <b
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
-# condition: (or (= (current-column) 2) (= (current-column) 0))
 # --
 #+TITLE: $0
 #+BEAMER_THEME: metropolis
