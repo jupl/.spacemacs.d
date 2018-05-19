@@ -10,5 +10,5 @@
 (defvar org-plus-pdf-options nil
   "List of options to pass to command to generate PDF from LaTeX.")
 
-(defvar org-plus-use-pygments nil
+(defvar org-plus-use-pygments (executable-find "pygmentize")
   "If true, then wire up for pygments.")
