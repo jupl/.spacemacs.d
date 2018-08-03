@@ -202,8 +202,10 @@
       (when (stringp linum-relative-format)
         (setq linum-relative-format (concat linum-relative-format " ")))))
 
+  ;; Force helm to load
+  (helm-mode 1)
+
   ;; Make tweaks to spacemacs
-  (global-evil-search-highlight-persist -1)
   (spaceline-toggle-buffer-position-off)
   (spaceline-toggle-buffer-size-off)
   (spaceline-toggle-hud-off)

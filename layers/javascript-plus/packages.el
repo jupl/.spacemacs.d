@@ -14,4 +14,6 @@
   "Disable TSLint by default."
   (setq-default
    flycheck-disabled-checkers (cons 'typescript-tslint
-                                    flycheck-disabled-checkers)))
+                                    (if (boundp 'flycheck-disabled-checkers)
+                                        flycheck-disabled-checkers
+                                      nil))))
