@@ -1,1 +1,1 @@
-(configuration-layer/declare-layer 'spacemacs-ui)
+(configuration-layer/declare-layer 'spacemacs-navigation)
