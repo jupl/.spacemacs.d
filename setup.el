@@ -196,8 +196,9 @@
         "qr" nil
         "qR" nil
         "qt" nil))
-    (when (stringp linum-format)
-      (setq linum-format (concat linum-format " ")))
+    (with-eval-after-load 'linum
+      (when (stringp linum-format)
+        (setq linum-format (concat linum-format " "))))
     (with-eval-after-load 'linum-relative
       (when (stringp linum-relative-format)
         (setq linum-relative-format (concat linum-relative-format " ")))))
