@@ -11,6 +11,10 @@
 (defconst myspacemacs-path (file-name-directory load-file-name)
   "Base directory for .spacemacs.d path.")
 
+(defvar myspacemacs-show-icons
+  (and (display-graphic-p) (member "all-the-icons" (font-family-list)))
+  "Whether icons can be shown. Use all-the-icons-install-fonts to install.")
+
 (defvar myspacemacs-powerline-scale 1.4
   "Scale adjustment for mode line.")
 
