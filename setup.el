@@ -49,6 +49,7 @@
       org-plus-pdf-no-tex t
       org-plus-use-pygments t
       org-enable-org-journal-support t
+      org-enable-reveal-js-support t
       org-journal-dir "~/org/journal"
       org-want-todo-bindings t)
      osx
@@ -91,8 +92,7 @@
   "Initialization function."
   (setq-default
    dotspacemacs-default-font `(,myspacemacs-fixed-font
-                               :size ,myspacemacs-font-size
-                               :powerline-scale ,myspacemacs-powerline-scale)
+                               :size ,myspacemacs-font-size)
    dotspacemacs-editing-style 'vim
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-emacs-command-key "SPC"
@@ -105,6 +105,9 @@
    dotspacemacs-line-numbers (append '(:enabled-for-modes)
                                      myspacemacs-prog-based-modes
                                      '(:relative t))
+   dotspacemacs-mode-line-theme `(spacemacs
+                                  :separator ,(if (display-graphic-p) 'bar nil)
+                                  :separator-scale ,myspacemacs-powerline-scale)
    dotspacemacs-mode-line-unicode-symbols (display-graphic-p)
    dotspacemacs-persistent-server (display-graphic-p)
    dotspacemacs-scratch-mode 'fundamental-mode
@@ -150,8 +153,7 @@
    frame-title-format '((:eval (myspacemacs/frame-title-format)))
    fill-column myspacemacs-max-column
    grep-highlight-matches t
-   line-spacing 0
-   powerline-default-separator (if (display-graphic-p) 'bar nil))
+   line-spacing 0)
 
   ;; Set font families
   (set-face-attribute 'variable-pitch nil :family myspacemacs-variable-font)
