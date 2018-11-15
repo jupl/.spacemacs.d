@@ -7,7 +7,8 @@
  version-control-diff-tool (cond ((display-graphic-p) 'diff-hl)
                                  ((eq system-type 'darwin) 'git-gutter)
                                  (t nil))
- version-control-diff-side 'left)
+ version-control-diff-side 'left
+ version-control-global-margin t)
 
 (defvar git-plus-repositories-path "~/Repositories"
   "Default path where repositories are hosted.")
