@@ -60,6 +60,7 @@
      (spell-checking
       :variables
       spell-checking-enable-by-default nil)
+     solaire
      syntax-checking
      (theming
       :variables
