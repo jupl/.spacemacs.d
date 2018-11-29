@@ -24,9 +24,7 @@
      clojure
      colors
      command-log
-     (doom
-      :variables
-      doom-neotree-file-icons myspacemacs-show-icons)
+     doom
      emacs-lisp
      git-plus
      (go

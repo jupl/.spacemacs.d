@@ -1,22 +1,17 @@
-(setq doom-packages '(doom-themes neotree))
+(setq doom-packages '(doom-themes treemacs))
 
 ;; For icons see https://github.com/domtronn/all-the-icons.el
 
 (defun doom/init-doom-themes ()
-  "Wait for doom to load to set up neotree."
+  "Wait for doom to load to set up treemacs."
   (use-package doom-themes
     :defer t
     :init
-    (spacemacs|use-package-add-hook neotree
-      :pre-config
-      (setq-default
-       neo-banner-message nil
-       neo-mode-line-type 'none
-       neo-show-hidden-files nil)
+    (spacemacs|use-package-add-hook treemacs
       :post-config
       (when (display-graphic-p)
-        (add-hook 'neotree-mode-hook 'doom/neotree-mode)
-        (doom-themes-neotree-config)))))
+        (add-hook 'treemacs-mode-hook 'doom/treemacs-mode)
+        (doom-themes-treemacs-config)))))
 
-(defun doom/post-init-neotree ()
+(defun doom/post-init-treemacs ()
   "Do nothing. Work is done in init-doom-themes.")

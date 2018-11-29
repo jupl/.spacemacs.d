@@ -1,4 +1,4 @@
-(defun doom/neotree-mode ()
+(defun doom/treemacs-mode ()
   "Adjust Neotree height."
-  (defface doom-neotree-face `((nil :height ,doom-neotree-size)) nil)
-  (buffer-face-set 'doom-neotree-face))
+  (defface doom-treemacs-face `((nil :height ,doom-treemacs-size)) nil)
+  (buffer-face-set 'doom-treemacs-face))

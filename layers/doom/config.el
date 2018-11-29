@@ -1,7 +1,6 @@
 (setq-default
- all-the-icons-scale-factor 1
- all-the-icons-default-adjust 0
- doom-neotree-enable-variable-pitch t)
+ doom-treemacs-enable-variable-pitch t
+ treemacs-show-hidden-files nil)
 
-(defvar doom-neotree-size 0.8
-  "Height of neotree text/content.")
+(defvar doom-treemacs-size 0.9
+  "Height of treemacs text/content.")
