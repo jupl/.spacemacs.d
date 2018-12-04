@@ -15,16 +15,9 @@
       auto-completion-enable-sort-by-usage t
       auto-completion-return-key-behavior nil
       auto-completion-tab-key-behavior 'complete)
-     (centered-cursor
-      :variables
-      centered-cursor-major-mode-blacklist '(spacemacs-buffer-mode
-                                             eshell-mode
-                                             shell-mode
-                                             term-mode))
      clojure
      colors
      command-log
-     doom
      emacs-lisp
      git-plus
      (go
@@ -37,10 +30,6 @@
      javascript-plus
      lua
      markdown-plus
-     mouse
-     (olivetti
-      :variables
-      olivetti-hide-mode-line t)
      (org-plus
       :variables
       org-plus-html-pygments-style "xcode"
@@ -60,7 +49,6 @@
      (spell-checking
       :variables
       spell-checking-enable-by-default nil)
-     solaire
      syntax-checking
      (theming
       :variables
@@ -82,6 +70,12 @@
                               (spacemacs-light
                                (linum-relative-current-face :bold nil
                                                             :underline nil))))
+     (ui-plus
+      :variables
+      ui-plus-centered-cursor-blacklist '(spacemacs-buffer-mode
+                                          eshell-mode
+                                          shell-mode
+                                          term-mode))
      vim-empty-lines
      vimscript
      yaml)
