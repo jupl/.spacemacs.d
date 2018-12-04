@@ -46,4 +46,14 @@
   (spacemacs/toggle-centered-point-globally-on))
 
 (defun ui-plus/post-init-treemacs ()
-  "Do nothing. Work is done in init-doom-themes.")
+  "Tweak treemacs."
+  (setq-default
+   treemacs-project-follow-cleanup t
+   treemacs-show-hidden-files nil)
+  (spacemacs|use-package-add-hook treemacs
+    :post-config
+    (progn
+      (spacemacs/set-leader-keys-for-major-mode 'treemacs-mode
+        "<tab>" 'ui-plus/treemacs-toggle-recursive)
+      (when (display-graphic-p)
+        (add-hook 'treemacs-mode-hook 'ui-plus/treemacs-mode)))))

@@ -1,6 +1,5 @@
 (setq-default
- doom-treemacs-enable-variable-pitch t
- treemacs-show-hidden-files nil)
+ doom-treemacs-enable-variable-pitch t)
 
 (defvar ui-plus-centered-cursor-blacklist '(spacemacs-buffer-mode)
   "Major modes to exclude global centered cursor mode.")
