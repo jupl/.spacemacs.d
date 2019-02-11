@@ -115,7 +115,7 @@
 (defun myspacemacs/user-init ()
   "Initialization function for user code."
   (setq-default
-   column-number-indicator-zero-based nil
+   column-number-indicator-zero-based (version< emacs-version "26")
    create-lockfiles nil
    display-time-default-load-average nil
    display-time-format "%a %m-%d %I:%M"
