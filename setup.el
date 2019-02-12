@@ -38,6 +38,7 @@
       org-enable-org-journal-support t
       org-enable-reveal-js-support t
       org-journal-dir "~/org/journal"
+      org-journal-time-format "%r "
       org-want-todo-bindings t)
      osx
      plantuml
