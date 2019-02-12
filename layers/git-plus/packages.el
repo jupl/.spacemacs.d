@@ -1,4 +1,4 @@
-(setq git-plus-packages '(git-commit magit))
+(setq git-plus-packages '(git-commit magit (magithub :excluded t)))
 
 (defun git-plus/post-init-git-commit ()
   "Tweak git-commit-mode buffer."
